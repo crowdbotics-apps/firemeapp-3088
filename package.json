@@ -12,6 +12,7 @@
     "start": "nf start -j Procfile.dev"
   },
   "dependencies": {
+    "react-photo-gallery": "*",
     "node-ethereum": "*",
     "Express": "*",
     "google-assistant": "*",
