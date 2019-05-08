@@ -12,6 +12,7 @@
     "start": "nf start -j Procfile.dev"
   },
   "dependencies": {
+    "node-ethereum": "*",
     "Express": "*",
     "google-assistant": "*",
     "ajax-promise": "^0.8.1",
