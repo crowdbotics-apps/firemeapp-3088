@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow">
+
+<title>API/Webhooks - Launchpad Help</title>
+<script type="text/javascript" src="/moin_static198/common/js/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Sök";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static198/lp20/css/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="/moin_static198/lp20/css/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="/moin_static198/lp20/css/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="/moin_static198/lp20/css/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static198/lp20/css/msie.css">
+<![endif]-->
+
+
+<link rel="alternate" title="Launchpad Help: API/Webhooks" href="/API/Webhooks?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=API%2FWebhooks&amp;ddiffs=1" type="application/rss+xml">
+
+
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-12833497-4']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+            
+
+<link rel="Start" href="/FrontPage">
+<link rel="Alternate" title="Wiki-märkning" href="/API/Webhooks?action=raw">
+<link rel="Alternate" media="print" title="Utskriftsvy" href="/API/Webhooks?action=print">
+<link rel="Up" href="/API">
+<link rel="Search" href="/FindPage">
+<link rel="Index" href="/TitleIndex">
+<link rel="Glossary" href="/WordIndex">
+<link rel="Help" href="/HelpOnFormatting">
+</head>
+
+<body  lang="sv" dir="ltr">
+
+            <div id="header">
+                <h1>
+                    <a href="https://help.launchpad.net/" class="header-link">
+                        <img src='
+/moin_static198/lp20/img/logo.png
+' />
+                        launchpad <strong>help</strong></a>
+                </h1>
+
+               <div id="finder">
+                  <div class="fixbox">
+                    <form id="searchform" method="get" action="">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <input id="searchinput" type="text" name="value" value="" size="20"
+                     onfocus="searchFocus(this)" onblur="searchBlur(this)"
+                     onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search">
+                   </form>
+                  </div>
+<ul class="editbar"><li><span class="disabled">Skrivskyddad sida</span></li><li><a class="nbinfo" href="/API/Webhooks?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="/API/Webhooks?action=AttachFile" rel="nofollow">Bilagor</a></li><li>
+<form class="actionsmenu" method="GET" action="/API/Webhooks">
+<div>
+    <label>Fler åtgärder:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Råtext</option>
+<option value="print">Utskriftsvy</option>
+<option value="RenderAsDocbook">Rendera som Docbook</option>
+<option value="refresh">Radera cache</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="SpellCheck">Stavningskontroll</option>
+<option value="LikePages">Liknande sidor</option>
+<option value="LocalSiteMap">Lokal översiktskarta</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="RenamePage" disabled class="disabled">Byt namn på sida</option>
+<option value="DeletePage" disabled class="disabled">Radera sida</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Användarprenumeration</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Ta bort spam</option>
+<option value="show" disabled class="disabled">Återgå till denna version</option>
+<option value="PackagePages">Paketsidor</option>
+<option value="SyncPages">Synkronisera sidor</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="Load">Ladda</option>
+<option value="Save">Spara</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    <input type="submit" value="Gör">
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Fler åtgärder:');
+//-->
+</script>
+</form>
+</li></ul>
+
+
+               </div>
+            </div>
+
+            <div id="locationline">
+
+</div>
+
+            <div id="sepbar">&nbsp;</div>
+            <div id="login">
+                <div class="fl">
+                    <h1 class="maintitle">
+API/Webhooks
+    </h1>
+                 </div>
+                 <div class="fr">
+Not logged in - <a href="/?action=login">Log In / Register</a>
+ </div>
+            </div>
+<div id="pageline"><hr style="display:none;"></div>
+            <div class="message">
+
+</div>
+<div id="page" lang="en" dir="ltr">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><div><table style="float:right;  font-size: 0.9em;  width:40%;  background:#F1F1ED;  margin: 0 0 1em 1em;"><tbody><tr>  <td style="padding:0.5em;"><p class="line891"><div class="table-of-contents"><p class="table-of-contents-heading">Innehåll<ol><li>
+<a href="#Webhooks">Webhooks</a><ol><li>
+<a href="#Objects_and_events">Objects and events</a></li><li>
+<a href="#Creating_webhooks">Creating webhooks</a></li><li>
+<a href="#Authentication">Authentication</a></li><li>
+<a href="#Testing">Testing</a></li><li>
+<a href="#Delivery_ordering">Delivery ordering</a></li><li>
+<a href="#Network_considerations">Network considerations</a></li><li>
+<a href="#Event_payloads">Event payloads</a><ol><li>
+<a href="#Bazaar_push">Bazaar push</a></li><li>
+<a href="#Git_push">Git push</a></li><li>
+<a href="#Merge_proposal">Merge proposal</a></li><li>
+<a href="#Ping">Ping</a></li><li>
+<a href="#Snap_build">Snap build</a></li></ol></li></ol></li></ol></div></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867">
+<h1 id="Webhooks">Webhooks</h1>
+<span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><p class="line862">Some objects in Launchpad support <a class="https" href="https://en.wikipedia.org/wiki/Webhook">webhooks</a>.  When these objects change, Launchpad will send an HTTP POST request to the delivery URL configured for each webhook with some information about the event that prompted the notification.  You can use this to integrate with all kinds of external services, and if you control an HTTP server reachable from the Internet it's easy to write your own webhook endpoint. <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line867">
+<h2 id="Objects_and_events">Objects and events</h2>
+<span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span><p class="line874">You can create webhooks on any of these target objects: <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Object</strong> </td>
+  <td><p class="line862"> <strong>Events</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-12"></span><p class="line862"> <a class="https" href="https://launchpad.net/+apidoc/devel.html#branch">Bazaar branch</a> </td>
+  <td><p class="line862"> <tt class="backtick">bzr:push:0.1</tt>, <tt class="backtick">merge-proposal:0.1</tt> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-13"></span><p class="line862"> <a class="https" href="https://launchpad.net/+apidoc/devel.html#git_repository">Git repository</a> </td>
+  <td><p class="line862"> <tt class="backtick">git:push:0.1</tt>, <tt class="backtick">merge-proposal:0.1</tt> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-14"></span><p class="line862"> <a class="https" href="https://launchpad.net/+apidoc/devel.html#snap">Snap package</a> </td>
+  <td><p class="line862"> <tt class="backtick">snap:build:0.1</tt> </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span><p class="line874">Events have a type (used in the API) and a name (shown in the web UI).  The types are versioned: if we ever change an event payload in an incompatible way, we'll bump the version so that you can adapt your code gracefully.  We may add more key/value pairs to dictionaries without bumping the version. <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Event type</strong> </td>
+  <td><p class="line862"> <strong>Event name</strong> </td>
+  <td><p class="line862"> <strong>When</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-19"></span><p class="line862"> <a href="/API/Webhooks#bzr-push-0.1">bzr:push:0.1</a> </td>
+  <td><p class="line862"> Bazaar push </td>
+  <td><p class="line862"> Any time a Bazaar branch is pushed </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-20"></span><p class="line862"> <a href="/API/Webhooks#git-push-0.1">git:push:0.1</a> </td>
+  <td><p class="line862"> Git push </td>
+  <td><p class="line862"> Any time a Git repository is pushed; this includes creating or deleting branches </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-21"></span><p class="line862"> <a href="/API/Webhooks#merge-proposal-0.1">merge-proposal:0.1</a> </td>
+  <td><p class="line862"> Merge proposal </td>
+  <td><p class="line862"> Any time a merge proposal that has this branch or repository as the target is created, modified, or deleted </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-22"></span><p class="line862"> <a href="/API/Webhooks#ping">ping</a> </td>
+  <td><p class="line862"> Ping </td>
+  <td><p class="line862"> A test event was requested manually </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-23"></span><p class="line862"> <a href="/API/Webhooks#snap-build-0.1">snap:build:0.1</a> </td>
+  <td><p class="line862"> Snap build </td>
+  <td><p class="line862"> Any time the status of a snap package build changes </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span><p class="line867">
+<h2 id="Creating_webhooks">Creating webhooks</h2>
+<span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span><p class="line862">You can create new webhooks by visiting a supported object in the Launchpad web UI and following the "Manage webhooks" link, or by using the <tt class="backtick">newWebhook</tt> method on one of those objects via the <a href="/API">Launchpad API</a>. <span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><p class="line867">
+<h2 id="Authentication">Authentication</h2>
+<span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><p class="line862">When you create a webhook, you will be asked for a secret.  You don't have to provide one, but if you do, Launchpad will add an <tt class="backtick">X-Hub-Signature</tt> HTTP header to each webhook delivery containing an HMAC-SHA1 signature of the body with that secret, as in the <a class="https" href="https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#rfc.section.8">PubSubHubbub specification</a>. <span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><p class="line862">You can't currently change the secret for an existing webhook using the Launchpad web UI, but you can use the <a class="https" href="https://launchpad.net/+apidoc/devel.html#webhook-setSecret">setSecret</a> API method to change it.  Launchpad will never divulge an existing webhook secret by any means; this is a write-only property. <span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span><p class="line867">
+<h2 id="Testing">Testing</h2>
+<span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><p class="line862">You can use the <a class="https" href="https://launchpad.net/+apidoc/devel.html#webhook-ping">ping</a> API method to send a test event: <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><p class="line867"><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><pre><span class="anchor" id="line-1"></span>obj = launchpad.load('/path/to/object')
+<span class="anchor" id="line-2"></span>webhook = obj.webhooks[0]
+<span class="anchor" id="line-3"></span>webhook.ping()</pre><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><p class="line862">Recent deliveries of a webhook are shown on its page in the Launchpad web UI.  They are also available in the <tt class="backtick">webhook.deliveries</tt> API collection, and you can look at <a class="https" href="https://launchpad.net/+apidoc/devel.html#webhook_delivery">various attributes of the delivery</a> there. <span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span><p class="line867">
+<h2 id="Delivery_ordering">Delivery ordering</h2>
+<span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><p class="line862">Webhooks will generally be delivered in roughly the order in which the events happened, but (as with any distributed service) you cannot rely on this.  If ordering is important to your application, then you should sort events by the numeric <tt class="backtick">X-Launchpad-Delivery</tt> header. <span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><p class="line867">
+<h2 id="Network_considerations">Network considerations</h2>
+<span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span><p class="line862">You should ensure that your firewall allows HTTP/HTTPS access (as appropriate) from all the IP addresses associated with <tt class="backtick">webhooks-proxy.launchpad.net</tt>.  If you are testing from the <a class="https" href="https://qastaging.launchpad.net/">qastaging sandbox</a>, you should also allow <tt class="backtick">webhooks-proxy.qastaging.paddev.net</tt>. <span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><p class="line862">The proxy used for delivering webhooks does not generally allow access to Canonical's own IP space.  If you are a Canonical employee and want to set up a webhook-based integration with another service hosted by Canonical, please <a class="https" href="https://answers.launchpad.net/launchpad/+addquestion">contact the Launchpad team</a> with details. <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><p class="line867">
+<h2 id="Event_payloads">Event payloads</h2>
+<span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span><p class="line874">All webhook deliveries will have the following HTTP headers: <span class="anchor" id="line-60"></span><span class="anchor" id="line-61"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Header name</strong> </td>
+  <td><p class="line862"> <strong>Content</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-62"></span><p class="line862"> <tt class="backtick">User-Agent</tt> </td>
+  <td><p class="line862"> Begins with <tt class="backtick">launchpad.net-Webhooks/</tt> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-63"></span><p class="line862"> <tt class="backtick">Content-Type</tt> </td>
+  <td><p class="line862"> <tt class="backtick">application/json</tt> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-64"></span><p class="line862"> <tt class="backtick">X-Launchpad-Event-Type</tt> </td>
+  <td><p class="line862"> Event type </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-65"></span><p class="line862"> <tt class="backtick">X-Launchpad-Delivery</tt> </td>
+  <td><p class="line862"> Unique identifier for this delivery </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-66"></span><p class="line862"> <tt class="backtick">X-Hub-Signature</tt> </td>
+  <td><p class="line862"> HMAC-SHA1 signature of the body with the secret, if configured; otherwise absent </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><p class="line874">The body of the request will be JSON. <span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><p class="line862">Payloads will usually contain the path part of the target object's URL, referred to as the "url-path" type below.  You can use these to find the object in the Launchpad web UI (prefix "<a class="https" href="https://launchpad.net">https://launchpad.net</a>") or in the Launchpad API (for example, you can pass the path directly to <a href="/API/launchpadlib#Persistent_references_to_Launchpad_objects">launchpad.load</a> without any prefix).  We recommend that you use the API if you need more information about the object than the webhook payload provides, or if you need to send notifications back to Launchpad (for example, after a CI job completes). <span class="anchor" id="line-71"></span><span class="anchor" id="line-72"></span><p class="line867"><span class="anchor" id="bzr-push-0.1"></span> <span class="anchor" id="line-73"></span>
+<h3 id="Bazaar_push">Bazaar push</h3>
+<span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><p class="line874">Triggered any time a Bazaar branch is pushed.  The payload is: <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-78"></span><p class="line862"> <tt class="backtick">bzr_branch</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The branch </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-79"></span><p class="line862"> <tt class="backtick">bzr_branch_path</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> A path to the branch; prefix with "lp:" to get a URL that can be used with the <tt class="backtick">bzr</tt> client </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-80"></span><p class="line862"> <tt class="backtick">old</tt> </td>
+  <td><p class="line862"> dict </td>
+  <td><p class="line862"> Branch attributes before this push </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-81"></span><p class="line862"> <tt class="backtick">new</tt> </td>
+  <td><p class="line862"> dict </td>
+  <td><p class="line862"> Branch attributes after this push </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><p class="line867"><tt class="backtick">old</tt> and <tt class="backtick">new</tt> are dictionaries of attributes as follows: <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-86"></span><p class="line862"> <tt class="backtick">revision_id</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The tip revision ID </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span><p class="line867"><span class="anchor" id="git-push-0.1"></span> <span class="anchor" id="line-89"></span>
+<h3 id="Git_push">Git push</h3>
+<span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><p class="line874">Triggered any time a Git repository is pushed; this includes creating or deleting branches.  The payload is: <span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-94"></span><p class="line862"> <tt class="backtick">git_repository</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The repository </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-95"></span><p class="line862"> <tt class="backtick">git_repository_path</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> A path to the repository; prefix with "git+<a class="ssh" href="ssh://git.launchpad.net/">ssh://git.launchpad.net/</a>" or "<a class="https" href="https://git.launchpad.net/">https://git.launchpad.net/</a>" to get a URL that can be used with the <tt class="backtick">git</tt> client </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-96"></span><p class="line862"> <tt class="backtick">ref_changes</tt> </td>
+  <td><p class="line862"> dict </td>
+  <td><p class="line862"> Maps ref names to <tt class="backtick">old</tt> and <tt class="backtick">new</tt> keys describing the previous and current state of each changed ref, each of which may be either <tt class="backtick">None</tt> if the ref is/was absent or a ref description as below </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><p class="line874">Ref descriptions are dictionaries of attributes as follows: <span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-101"></span><p class="line862"> <tt class="backtick">commit_sha1</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The SHA-1 of the commit that the ref points to </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><p class="line867"><span class="anchor" id="merge-proposal-0.1"></span> <span class="anchor" id="line-104"></span>
+<h3 id="Merge_proposal">Merge proposal</h3>
+<span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span><p class="line874">Triggered any time a merge proposal that has the target branch or repository as the target is created, modified, or deleted.  The payload is: <span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-109"></span><p class="line862"> <tt class="backtick">merge_proposal</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The merge proposal </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-110"></span><p class="line862"> <tt class="backtick">action</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> "created", "modified", or "deleted" </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-111"></span><p class="line862"> <tt class="backtick">old</tt> </td>
+  <td><p class="line862"> dict </td>
+  <td><p class="line862"> Absent if <tt class="backtick">action</tt> is "created"; otherwise, a dictionary of merge proposal attributes before this event </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-112"></span><p class="line862"> <tt class="backtick">new</tt> </td>
+  <td><p class="line862"> dict </td>
+  <td><p class="line862"> Absent if <tt class="backtick">action</tt> is "deleted"; otherwise, a dictionary of merge proposal attributes after this event </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span><p class="line874">Merge proposal attributes are as follows: <span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-117"></span><p class="line862"> registrant </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The person who registered the merge proposal </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-118"></span><p class="line862"> source_branch </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Bazaar branch that has code to land </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-119"></span><p class="line862"> source_git_repository </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Git repository that has code to land </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-120"></span><p class="line862"> source_git_path </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> Ref path of the Git branch that has code to land </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-121"></span><p class="line862"> target_branch </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Bazaar branch that the source branch will be merged into </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-122"></span><p class="line862"> target_git_repository </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Git repository that the source branch will be merged into </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-123"></span><p class="line862"> target_git_path </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> Ref path of the Git branch that the source branch will be merged into </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-124"></span><p class="line862"> prerequisite_branch </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Bazaar branch that the source branch branched from </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-125"></span><p class="line862"> prerequisite_git_repository </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The Git repository containing the branch that the source branch branched from </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-126"></span><p class="line862"> prerequisite_git_path </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The path of the Git branch that the source branch branched from </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-127"></span><p class="line862"> queue_status </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The current state of the proposal: one of "Work in progress", "Needs review", "Approved", "Rejected", "Merged", or "Superseded" </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-128"></span><p class="line862"> commit_message </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The commit message that should be used when merging the source branch </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-129"></span><p class="line862"> whiteboard </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> Notes about the merge </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-130"></span><p class="line862"> description </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> A detailed description of the changes that are being addressed by the branch being proposed to be merged </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-131"></span><p class="line862"> preview_diff </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The current diff of the source branch against the target branch </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><p class="line867"><span class="anchor" id="ping"></span> <span class="anchor" id="line-134"></span>
+<h3 id="Ping">Ping</h3>
+<span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span><p class="line862">A test event was <a href="/API/Webhooks#Testing">requested manually</a>.  The payload is: <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-139"></span><p class="line862"> <tt class="backtick">ping</tt> </td>
+  <td><p class="line862"> boolean </td>
+  <td><p class="line862"> <tt class="backtick">true</tt> </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span><p class="line867"><span class="anchor" id="snap-build-0.1"></span> <span class="anchor" id="line-142"></span>
+<h3 id="Snap_build">Snap build</h3>
+<span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span><p class="line874">Triggered any time the status of a snap package build changes.  The payload is: <span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><div><table><tbody><tr>  <td><p class="line862"> <strong>Key</strong> </td>
+  <td><p class="line862"> <strong>Type</strong> </td>
+  <td><p class="line862"> <strong>Value</strong> </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-147"></span><p class="line862"> <tt class="backtick">snap_build</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The snap build </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-148"></span><p class="line862"> <tt class="backtick">action</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> "status-changed" </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-149"></span><p class="line862"> <tt class="backtick">snap</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The snap package </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-150"></span><p class="line862"> <tt class="backtick">build_request</tt> </td>
+  <td><p class="line862"> url-path </td>
+  <td><p class="line862"> The associated snap build request, if any </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-151"></span><p class="line862"> <tt class="backtick">status</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The current status of the build job: one of "Needs building", "Successfully built", "Failed to build", "Dependency wait", "Chroot problem", "Build for superseded Source", "Currently building", "Failed to upload", "Uploading build", "Cancelling build", or "Cancelled build" </td>
+</tr>
+<tr>  <td><span class="anchor" id="line-152"></span><p class="line862"> <tt class="backtick">store_upload_status</tt> </td>
+  <td><p class="line862"> string </td>
+  <td><p class="line862"> The current status of uploading this build to the store: one of "Unscheduled", "Pending", "Failed to upload", "Failed to release to channels", or "Uploaded" </td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-153"></span><span class="anchor" id="bottom"></span></div><p id="pageinfo" class="info" lang="sv" dir="ltr">API/Webhooks  (senast redigerad 2018-10-04 13:36:22 av <span title="cjwatson @ 1.general.cjwatson.uk.vpn[10.172.192.14]"><a class="interwiki" href="https://launchpad.net/~cjwatson" title="cjwatson @ 1.general.cjwatson.uk.vpn[10.172.192.14]">cjwatson</a></span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+                <p class="menu">
+                    <a href="https://help.launchpad.net/Legal">Terms of use</a> |
+                    <a href="https://launchpad.net/feedback">Help improve Launchpad</a> |
+                    <a href="https://launchpad.net/faq">FAQ</a> |
+                    <a href="/RecentChanges">Recent Changes</a></p>
+                <p>
+                    <a rel="license" href="http://creativecommons.org/licenses/by/2.0/uk/">
+                    <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Launchpad Help</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://canonical.com/" property="cc:attributionName" rel="cc:attributionURL">Canonical Ltd</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.0/uk/">Creative Commons Attribution 2.0 UK: England &amp; Wales License</a>. <img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="https://licensebuttons.net/l/by/2.0/uk/80x15.png" /></a>
+                    </p>
+                <p>&copy; 2004-2019 <a href="https://canonical.com/" target="_blank">Canonical Limited.</a></p>
+            </div>
+</body>
+</html>
+
