@@ -1,0 +1,8 @@
+npm install -g @cloudflare/wrangler
+~/ $ wrangler config
+
+# Create and publish a “Hello World” Worker
+~/ $ wrangler generate hello
+~/ $ cd hello
+~/hello $ wrangler subdomain world
+~/hello $ wrangler publish
