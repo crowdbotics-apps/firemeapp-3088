@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+# This is a utility script just to locate the system mercurial packages
+import os
+import mercurial
+print os.path.abspath(mercurial.__file__)

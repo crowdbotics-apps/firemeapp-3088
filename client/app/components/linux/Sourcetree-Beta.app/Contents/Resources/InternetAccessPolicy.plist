@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationDescription</key>
+	<string>Sourcetree is Atlassian&apos;s free Git and Mercurial client for Mac and Windows.</string>
+	<key>DeveloperName</key>
+	<string>Atlassian</string>
+	<key>Connections</key>
+	<array>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>www.gravatar.com</string>
+			<key>Relevance</key>
+			<string>Default</string>
+			<key>Purpose</key>
+			<string>Sourcetree displays the Gravatar icon for a commit author (if available) by default. You can disable it in Sourcetree&apos;s Preferences -&gt; General section.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, Gravatar icons won&apos;t be loaded for commit authors and only the placeholder will be shown.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>product-downloads.atlassian.com</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree periodically checks for software updates. You can disable automatic update checks in Sourcetree&apos;s Preferences -&gt; Update section.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, you will not be notified about new versions of Sourcetree.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>avatar-cdn.atlassian.com</string>
+			<key>Relevance</key>
+			<string>Default</string>
+			<key>Purpose</key>
+			<string>Sourcetree shows each Bitbucket account&apos;s profile avatar in the Preferences -&gt; Accounts list.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, you will only see a placeholder icon for Bitbucket accounts.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>bitbucket.org</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree interacts with Bitbucket to load your user profile, list remote repositories, display build status, and create pull requests.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, remote repositories from Bitbucket won&apos;t be listed in Sourcetree and any remote operations for a Bitbucket repository will fail.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>bytebucket.org</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree interacts with Bitbucket and it utilizes this to serve some types of content.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, content may not load appropriately for Bitbucket repositories.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>githubusercontent.com</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree interacts with GitHub and it utilizes this to serve some types of content.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, content may not load appropriately for GitHub accounts and repositories.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>github.com</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree interacts with GitHub to load your user profile, list remote repositories, and create pull requests.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, remote repositories from GitHub won&apos;t be listed in Sourcetree and any remote operations for a GitHub repository will fail.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>gitlab.com</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree interacts with GitLab to load your user profile, list remote repositories, and create pull requests.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, remotes repositories from GitLab won&apos;t be listed in Sourcetree and any remote operations for a GitLab repository will fail.</string>
+		</dict>
+		<dict>
+			<key>IsIncoming</key>
+			<false/>
+			<key>Host</key>
+			<string>*</string>
+			<key>Relevance</key>
+			<string>Essential</string>
+			<key>Purpose</key>
+			<string>Sourcetree supports not only cloud hosting services but also self-hosted server solutions.</string>
+			<key>DenyConsequences</key>
+			<string>If you deny this connection, Sourcetree won&apos;t be able to connect to any unspecified server.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

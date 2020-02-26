@@ -1,0 +1,2 @@
+SSID:biubit
+Lösenord:ubnt

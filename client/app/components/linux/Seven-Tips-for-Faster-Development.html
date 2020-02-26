@@ -1,0 +1,1071 @@
+<!-- Type of resource -->
+
+
+
+
+
+
+<!-- Generate random number between 1-3 to set class for cover image design -->
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-language" content="en-US">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3769691-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script>
+    function doNotTrackEnabled() {
+      if (window.doNotTrack && window.doNotTrack == "1") {
+        return true;
+      }
+      if (navigator.doNotTrack && navigator.doNotTrack == "1") {
+        return true;
+      }
+      return false;
+    }	
+
+  </script>
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Top seven tips for faster application development with DevOps | GitHub Resources</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Top seven tips for faster application development with DevOps" />
+<meta name="author" content="GitHub" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="DevOps can help teams of any size develop, fix, and deploy software faster." />
+<meta property="og:description" content="DevOps can help teams of any size develop, fix, and deploy software faster." />
+<link rel="canonical" href="https://resources.github.com/whitepapers/Seven-Tips-for-Faster-Development/" />
+<meta property="og:url" content="https://resources.github.com/whitepapers/Seven-Tips-for-Faster-Development/" />
+<meta property="og:site_name" content="GitHub Resources" />
+<meta property="og:image" content="https://resources.github.com/assets/img/socialcard.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-11T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://resources.github.com/assets/img/socialcard.png" />
+<meta property="twitter:title" content="Top seven tips for faster application development with DevOps" />
+<meta name="twitter:site" content="@github" />
+<meta name="twitter:creator" content="@GitHub" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Top seven tips for faster application development with DevOps","dateModified":"2019-04-11T00:00:00+00:00","datePublished":"2019-04-11T00:00:00+00:00","url":"https://resources.github.com/whitepapers/Seven-Tips-for-Faster-Development/","mainEntityOfPage":{"@type":"WebPage","@id":"https://resources.github.com/whitepapers/Seven-Tips-for-Faster-Development/"},"author":{"@type":"Person","name":"GitHub"},"image":"https://resources.github.com/assets/img/socialcard.png","description":"DevOps can help teams of any size develop, fix, and deploy software faster.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <div class="page-responsive">
+  <header class="Header header-logged-out js-details-container Details position-relative f4 py-2" role="banner">
+    <div class="container-xl d-lg-flex flex-items-center px-3 px-md-4">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="Homepage" data-ga-click="Resources, go to Homepage, resources main nav (invertocat logo)">
+          <svg height="32" class="octicon octicon-mark-github text-white" aria-label="github-logo" viewBox="0 0 16 16" version="1.1" width="32" role="img"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+
+        <div class="d-flex flex-items-center">
+          <button class="btn-link d-lg-none mt-1 js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-three-bars text-white" aria-label="menu" viewBox="0 0 12 16" version="1.1" width="18" role="img"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="HeaderMenu HeaderMenu--logged-out position-fixed top-0 right-0 bottom-0 height-fit position-lg-relative d-lg-flex flex-justify-between flex-items-center flex-auto">
+        <div class="d-flex d-lg-none flex-justify-end border-bottom bg-gray-light p-3">
+          <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-x text-gray" aria-label="close" viewBox="0 0 12 16" version="1.1" width="18" role="img"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+          </button>
+        </div>
+
+        <nav class="mt-0 px-3 px-lg-0 mb-5 mb-lg-0" aria-label="Global">
+          <ul class="d-lg-flex list-style-none">
+            <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+              <details class="HeaderMenu-details details-overlay details-reset width-full">
+                <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                  Why GitHub?
+                  <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                    <path d="M1,1l6.2,6L13,1"></path>
+                  </svg>
+                </summary>
+                <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                  <a href="https://github.com/features" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Features, resources main nav">Features <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+                  <ul class="list-style-none f5 pb-3">
+                    <li class="edge-item-fix"><a href="https://github.com/features/code-review/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Code review, resources main nav">Code review</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features/project-management/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Project management, resources main nav">Project management</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features/integrations" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Integrations, resources main nav">Integrations</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features/actions" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Actions, resources main nav">Actions</a>
+                    <li class="edge-item-fix"><a href="https://github.com/features/package-registry" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Package registry, resources main nav">Package registry</a>
+                    <li class="edge-item-fix"><a href="https://github.com/features/security" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Security, resources main nav">Security</a>
+                    <li class="edge-item-fix"><a href="https://github.com/features#team-management" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Team management, resources main nav">Team management</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features#social-coding" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Social coding, resources main nav">Social coding</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features#documentation" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Documentation, resources main nav">Documentation</a></li>
+                    <li class="edge-item-fix"><a href="https://github.com/features#code-hosting" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Code hosting, resources main nav">Code hosting</a></li>
+                  </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/case-studies" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Customer stories, resources main nav">Customer stories <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/security" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Security, resources main nav">Security <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="Resources, go to Enterprise, resources main nav">Enterprise</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Explore
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/explore" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Expore Github, resources main nav">Explore GitHub <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Learn &amp; contribute</h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/topics" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Topics, resources main nav">Topics</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/collections" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Collections, resources main nav">Collections</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/trending" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Trending, resources main nav">Trending</a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Learning Lab, resources main nav">Learning Lab</a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Open source guides, resources main nav">Open source guides</a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Connect with others</h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Events, resources main nav">Events</a></li>
+                      <li class="edge-item-fix"><a href="https://github.community" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Community forum, resources main nav">Community forum</a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to GitHub Education, resources main nav">GitHub Education</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="Resources, go to Marketplace, resources main nav">Marketplace</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Pricing
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-4 mt-0 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="https://github.com/pricing" class="pb-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Plans, resources main nav">Plans <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Compare plans, resources main nav">Compare plans</a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="Resources, go to Contact Sales, resources main nav">Contact Sales</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/nonprofit" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="Resources, go to Nonprofit, resources main nav">Nonprofit <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover"  data-ga-click="Resources, go to Education, resources main nav">Education <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="d-lg-flex flex-items-center px-3 px-lg-0 text-center text-lg-left">
+            <a class="HeaderMenu-link no-underline mr-3" href="https://github.com/login?return_to=%2Fjoin%3Fsource%3Dheader-home" data-ga-click="Resources, go to Sign in, resources main nav">Sign&nbsp;in</a>
+            <a class="HeaderMenu-link d-inline-block no-underline border border-gray-dark rounded-1 px-2 py-1" href="https://github.com/join?source=header-home" data-ga-click="Resources, go to Sign up, resources main nav">Sign&nbsp;up</a>
+          </div>
+        </div>
+      </div>
+  </header>
+</div>
+
+
+<div class="bg-white border-bottom" style="position: sticky; position: -webkit-sticky; top: 0; z-index: 5;">
+  <nav class="d-flex container-xl mx-auto px-3 px-md-4">
+    <div class="d-flex flex-auto flex-items-center">
+      
+      <a class="h5-mktg link-gray-dark py-3 mr-3 no-underline" href="/">Resources</a>
+      
+    </div>
+
+    <div class="d-flex flex-auto flex-items-center flex-justify-end">
+      
+      <a href="/videos" class="d-none d-sm-inline-block h5-mktg text-normal link-gray-dark py-3 mr-4 no-underline">Videos</a>
+      <a href="/webcasts" class="d-none d-sm-inline-block h5-mktg text-normal link-gray-dark py-3 mr-4 no-underline">Webcasts</a>
+      <a href="/whitepapers" class="d-none d-sm-inline-block h5-mktg text-normal link-gray-dark py-3 mr-4 no-underline">Whitepapers</a>
+      
+
+      <a href="https://enterprise.github.com/contact" data-ga-click="Resources, click on Contact Sales, resources subnav" class="btn-mktg py-2 px-3 f5 my-2">
+        Contact sales
+      </a>
+    </div>
+  </nav>
+</div>
+
+
+
+<div class="p-3 ml-3 f5 bg-gray-light border border-gray rounded-2 box-shadow-medium cookie-consent js-cookie-consent position-fixed" hidden>
+  This site uses <a href="https://help.github.com/en/articles/github-subprocessors-and-cookies" target="_blank">cookies</a> for internal analytics based on your settings. Do you consent to the use of cookies?
+  <div class="text-right mt-2">
+    <a class="btn btn-sm primary btn-outline f5 bg-white js-consent-response-yes btn-outline-mktg">Accept</a>
+    <a class="btn btn-sm primary btn-outline f5 bg-white js-consent-response-no ml-1 text-gray-light">Dismiss</a>
+  </div>
+</div>
+
+
+
+  <body>
+    <main class="position-relative mb-12">
+      <div class="bg-dots-gray width-full z-n1 position-absolute" style="content: ''; height: 276px;"></div>
+      <div class="mb-7 container-xl mx-auto gutter">
+        <div class="container-xl col-12 col-sm-10 col-md-8 col-lg-7 mx-auto d-flex flex-md-row">
+          <div class="col-12 cover-2 whitepaper-2 mt-7 py-4 px-3 px-md-4 d-flex flex-justify-between flex-column rounded-1 position-relative" style="min-height: 280px">
+            <div class="d-flex flex-justify-between">
+              <h4 class="text-white text-mono f5" style="z-index: 4;"></h4>
+              <!--// Create an array of publicly-visible tags for this resource //-->
+
+
+
+
+
+
+<!--// Render icon for tag if it is in the site.tags_with_icons list -->
+<div class="d-flex">
+  
+  
+  <span class="tooltipped tooltipped-sw" aria-label="tagged: devops">
+    <div class="cover-icon-bg d-flex flex-justify-center flex-items-center position-relative" style="z-index: 4; border-radius: 50%; width: 42px; height: 42px;">
+      <img src="/assets/img/tag-icons/devops.svg">
+    </div>
+  </span>
+  
+  
+</div>
+
+            </div>
+            <h1 class="h1-mktg lh-condensed text-white" style="z-index: 4;">Top seven tips for faster application development with DevOps</h1>
+            <!-- WHITEPAPER/ Purple -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#5A32A3"/></svg>
+<svg class="cover-decor cover-gradient cover-callout whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#3A1D6E"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#wp-2)"/><defs><linearGradient id="wp-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#3A1D6E"/><stop offset="1" stop-color="#3A1D6E" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid whitepaper-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#4C2888"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#4C2888"/><stop offset="1" stop-color="#4C2888" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- WEBCASTS / blue -->
+<!-- version 1 -->
+<svg class="cover-decor cover-gradient webcast-1-decor position-absolute bottom-0 right-4" style="z-index: 3;" width="290" height="238" viewBox="0 0 290 238" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 186.048v-77.521C17.015 45.987 74.204 0 142.134 0c81.345 0 147.288 65.943 147.288 147.288 0 33.762-11.36 64.872-30.466 89.714H25.313C13.798 222.03 5.097 204.782 0 186.048z" fill="url(#w-1)"/><defs><linearGradient id="w-1" x1="341" y1="228.5" x2="98.5" y2="54.5" gradientUnits="userSpaceOnUse"><stop stop-color="#005CC5"/><stop offset="1" stop-color="#005CC5" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid webcast-2-decor position-absolute bottom-10 left-12" style="z-index: 1;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="#032F62"/></svg>
+<svg class="cover-decor cover-gradient webcast-2-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="177" height="203" viewBox="0 0 177 203" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M150.244 202.049H3a3 3 0 0 1-3-3V11.398C15.877 4.08 33.553 0 52.181 0 121.118 0 177 55.883 177 124.818c0 29.16-9.999 55.984-26.756 77.231z" fill="url(#w-2)"/><defs><linearGradient id="w-2" x1="130" y1="138.59" x2="136.499" y2="47.59" gradientUnits="userSpaceOnUse"><stop stop-color="#032F62"/><stop offset="1" stop-color="#032F62" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-gradient webcast-3-decor position-absolute bottom-0" style="z-index: 3;" width="363" height="167" viewBox="0 0 363 167" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 167h363C363 66.919 281.74 0 181.5 0S0 66.919 0 167z" fill="url(#w-3)"/><defs><linearGradient id="w-3" x1="85" y1="38.5" x2="181.5" y2="167" gradientUnits="userSpaceOnUse"><stop stop-color="#044289"/><stop offset="1" stop-color="#044289" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- VIDEOS / orange -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid video-1-decor position-absolute top-9 right-12" style="z-index: 1;"  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#E36209" d="M0 0h48v48H0z"/></svg>
+<svg class="cover-decor cover-gradient video-1-decor position-absolute top-0 right-0" style="z-index: 3;" width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h153a3 3 0 0 1 3 3v150a3 3 0 0 1-3 3H0V0z" fill="url(#v-1)"/><defs><linearGradient id="v-1" x1="137" y1="142" x2="21.93" y2="13.063" gradientUnits="userSpaceOnUse"><stop stop-color="#E36209"/><stop offset=".991" stop-color="#E36209" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid video-2-decor position-absolute bottom-0 left-0" style="z-index: 1;"  width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h253v256H3a3 3 0 0 1-3-3V3z" fill="#C24E00"/></svg>
+<svg class="cover-decor cover-gradient video-2-decor position-absolute bottom-0 right-7" style="z-index: 3;" width="157" height="157" viewBox="0 0 157 157" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(180 157 157)" fill="url(#v-2)" d="M157 157h157v157H157z"/><defs><linearGradient id="v-2" x1="187" y1="193" x2="291.5" y2="314" gradientUnits="userSpaceOnUse"><stop stop-color="#C24E00"/><stop offset="1" stop-color="#C24E00" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid video-3-decor position-absolute bottom-8 right-8" style="z-index: 1;" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#D15704" d="M0 0h43v43H0z"/></svg>
+<svg class="cover-decor cover-gradient video-3-decor position-absolute top-0 right-0" style="z-index: 3;" width="177" height="177" viewBox="0 0 177 177" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M177 177H0V0h174a3 3 0 0 1 3 3v174z" fill="url(#v-3)"/><defs><linearGradient id="v-3" x1="147.847" y1="97.177" x2="0" y2="97.177" gradientUnits="userSpaceOnUse"><stop stop-color="#D15704"/><stop offset="1" stop-color="#D15704" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- CUSTOMER STORIES / green -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#22863A"/></svg>
+<svg class="cover-decor cover-gradient customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-1)"/><defs><linearGradient id="cs-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#22863A"/><stop offset="1" stop-color="#22863A" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#165C26"/></svg>
+<svg class="cover-decor cover-gradient customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#cs-2)"/><defs><linearGradient id="cs-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#165C26"/><stop offset="1" stop-color="#165C26" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid customer-story-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#176F2C"/></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#176F2C"/><stop offset="1" stop-color="#176F2C" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<div class="cover-dots position-absolute" style="content: ''; z-index: 2;"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container-xl mx-auto d-flex flex-md-row flex-wrap gutter">
+        <!-- main web article body -->
+        <div class="col-12 col-sm-10 col-md-8 col-lg-7 mb-4 mb-md-0 mx-auto">
+          <div class="permalink-single-column-metadata d-flex flex-justify-between flex-items-center">
+            <div class="metadata-primary"
+              <!-- date -->
+              
+              
+
+              
+                <p class="d-inline-block mb-0 text-mono f5 mb-2">April 11, 2019</p>
+              
+
+              <!-- tags -->
+              <div class="f5">
+  <!--// Create an array of publicly-visible tags for this resource //-->
+  
+  
+  
+  
+
+  <!--// If there are any publicly-visible tags for this resource, list them //-->
+  
+    <ul class="mb-2 pl-0">
+      <li class="d-inline-block mr-1 mb-0">Tags:</li>
+      
+        <li class="d-inline-block mr-1 mb-0">
+          <a href="/tag/devops" class="link-mktg link-gray">devops</a>
+        </li>
+      
+    </ul>
+  
+</div>
+
+            </div>
+
+            
+              <div class="metadata-secondary">
+                <a class="btn-mktg btn-outline-mktg px-3 py-2" href="/downloads/GitHub-Top-7-tips-for-faster-application-development-with-DevOps.pdf" target="_blank">
+                  <span>Download PDF</span>
+                  <span class="ml-2"><svg class="octicon octicon-file-pdf" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V4.5L8.5 1zM1 2h4a.68.68 0 00-.31.2 1.08 1.08 0 00-.23.47 4.22 4.22 0 00-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 013.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 00-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 001.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 01-.17 0 2.12 2.12 0 00.73-.44 10.14 10.14 0 001.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 00-.64-.28 4.221 4.221 0 00-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 01-1-.64 6.07 6.07 0 01-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 00-.2-.88.82.82 0 00-.61-.23H8l3 3v4.14z"/></svg></span>
+                </a>
+              </div>
+            
+
+          </div>
+
+          <hr class="my-5"/>
+
+          <article class="permalink-single-column-content mb-7">
+            <!-- article description -->
+            <p class="f3 lead-mktg text-gray-dark mb-3">DevOps can help teams of any size develop, fix, and deploy software faster.</p>
+
+
+            <!-- main web article content -->
+            <p>DevOps is about speed: faster application development, faster updates and continuous development, and faster shipments, all of which lead to shortened systems development lifecycles. Recent research shows that high-performing DevOps teams recover from downtime 96 times faster, have a five times lower change failure rate, and deploy code 46 times more frequently. In short, successful DevOps teams can deploy code and recover in a matter of hours, not weeks.</p>
+
+<p>It’s no small wonder organizations of just about all sizes and across all vertical markets and global geographies have embraced DevOps. Another survey found that nearly three quarters of organizations surveyed globally have already adopted DevOps. However, all this well-founded enthusiasm and DevOps potential is tempered by real challenges. This same study also discovered that eliminating process bottlenecks to speed up releases shot up to the top of the list of DevOps challenges. Streamlining collaboration and selecting the right suite of automation and other tools followed in order of leading challenges.</p>
+
+<p>This article lists the top seven DevOps tips that high performing teams are following to maximize their DevOps efforts and investments.</p>
+
+<h2 id="1-devops-culture-matters-especially-when-built-from-the-grassroots">1. DevOps culture matters, especially when built from the grassroots.</h2>
+
+<p>The author of the annual State of DevOps Survey, now in its seventh year, wrote, “The most important themes for us have always been empowering teams to do their best work, overcoming the cultural divide between dev and ops.”<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> Extensive analysis of historical data from this survey shows that DevOps success is derived most often by starting with small, grassroots efforts. Next, developers need a lightweight platform with which they can securely share early successes and proven practices with other teams. This sharing then spreads to multiple teams within a single department, and ultimately to other departments. Said another way, don’t try overdoing it with DevOps efforts from the outset. This is precisely the practice followed by the world’s largest business software maker and a global leader in logistics.</p>
+
+<h2 id="2-embed-security-deeply-into-devops-right-from-the-start">2. Embed security deeply into DevOps right from the start.</h2>
+
+<p>This means automating security configurations to the greatest extent possible. As DevOps organizations evolve from their grassroots beginnings, security policy becomes an intrinsic part of operations and not something IT scrambles to prove to meet audit requirements. As the world’s leading software development platform, GitHub, provides solutions that are GDPRcompliant, encrypt all data in transit, and support industry-leading control considerations with the Cloud Security Alliance CSA-CAIQ Assessment. Organizations also have the option to host code on their own infrastructures using the self-hosted product GitHub Enterprise Server, built to support strict security, auditing, and compliance requirements. This solution is governed by existing local information security controls, including firewalls, VPNs, IAM and monitoring systems. This on-premises solution can aid in the effort of avoiding many of the regulatory compliance issues common with cloud-based solutions. Thus the focus can be turned away from keeping away the auditors toward keeping the data of the organization and of its customers secure. And most importantly, teams and developers can build more secure code faster.</p>
+
+<aside>
+  <h4>
+    DevOps organizations and teams need to shift focus from the details of audits and compliance to developing secure code as an efficient, holistic process.
+  </h4>
+</aside>
+
+<h2 id="3-to-the-extent-possible-automate">3. To the extent possible, automate</h2>
+
+<p>The conversation about automation in DevOps usually settles on automation of systems configuration, workflows and systems provisioning. This infrastructure automation tackles the common challenge of keeping developers’ work on pace and not running ahead of operations capabilities, which is directly related to the ability to deploy software. Automation serves up another key feature, namely the creation of more broadly available selfservice in later stages of development, which of course leads to greater efficiency. Using an array of templates, GitHub allows users to automatically configure workflows in order to keep the status of project board cards in sync with associated issues and pull cards. Users can automate actions based on triggering events to eliminate some timeconsuming manual tasks in managing a project board. And users can copy a GitHub project board to reuse its customization for similar projects down the road.</p>
+
+<h2 id="4-exploit-the-benefits-of-an-open-platform-in-providing-transparency">4. Exploit the benefits of an open platform in providing transparency.</h2>
+
+<p>Collaboration, which is a main driver of efficiency in DevOps, lays at the heart of open source, wherein software is developed in a highly collaborative, collegial and public process. Open source revenues globally have grown dramatically in recent years as organizations of all types have aggressively build open source into their DevOps methodology. Web-based software platforms allow users to track and follow the actions of very large numbers of other developers, no matter where they are located or for whom they work. An open platform also gives developers and teams collaboration both within and outside their teams. In doing so they can not only leverage open source code, but also exploit security bug updates for building more secure code quicker. This openness yields the potential for optimal transparency, and this can radically improve collaboration and learning in the highly complex business of software development.</p>
+
+<p>One study shows that in such a social development environment, users make a rich and mutually rewarding set of connections and social inferences from this networked activity, such as inferring someone else’s technical goals and vision when editing code, or better guessing which projects have the best chances of success in the long run. Users then combine such inferences into more effective strategies for coordinating work and advancing their own technical skills.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<h2 id="5-integrate-with-the-widest-set-of-tools-possible">5. Integrate with the widest set of tools possible.</h2>
+
+<p>In the latest version of an annual survey on enterprise DevOps deployments, the top two challenges to more effective DevOps processes are people oriented (eliminating process bottlenecks and streamlining developer collaboration.) But a close third on this list is selecting and implementing application monitoring, management, and automation tools. The ability to integrate DevOps efforts with the widest array of tools possible is a cornerstone of DevOps success. Whether it is to promote continuous integration or code review or code editing, it is essential that developers can find just the right tools for every step of the development process, and then begin to use them on the spot. GitHub offers access to literally hundreds of tools designed to help development teams better communicate, to automate their work, and to develop better software. There are times when only a custom-developed tool is needed for a specific task. GitHub enables users to create such customized tools with greater access to data using GitHub GraphQL API, which is the same API the company used to build GitHub.</p>
+
+<h2 id="6-maximize-open-source-efficiency-with-innersource">6. Maximize open source efficiency with innersource.</h2>
+
+<p>A fast-growing number of organizations are adopting and using innersource, a development methodology harnessing best practices from large-scale open source projects. These kinds of highly complex, multi-development team efforts require coordination across hundreds if not thousands of developers and teams. Thus, innersource is proving to be a formidable weapon to combat the many challenges posed by large-scale DevOps projects, and a great way to boost efficiency through code reuse. Companies can access and leverage open source best practices behind the innersource firewall. GitHub is home to the single largest open source community in the world. Developers and teams on the GitHub platform can view, modify and distribute a project for any purpose they choose, as enforced by open source licenses. And GitHub offers a broad series of self-help guides for finding users for your project; building welcoming communities; maintenance and governance; and open source metrics, to name a few.</p>
+
+<h2 id="7-promote-continuous-feedback-integration-change-management-and-deployment">7. Promote continuous feedback, integration, change management, and deployment.</h2>
+
+<p>Discovering common practices and industry standards in DevOps is one thing. The more important matter is to integrate them and embed them deeply into a process flow that crosses data and information silos from development through deployment and then to operations. To this end, continuous integration builds on test automation to ensure that as new code is added to an application, continuous integration focuses on quality at the application level as new or modified code is integrated. Change management brings operations in the picture to allow input on what other systems could be impacted and what consequences or opportunities a change might expose at a broader level. Incremental deployment strategies often fall victim to operational constraints that can limit or stop continuous deployment in its tracks. This is a people issue, not a technology problem. And the remedy is the inclusion of all stakeholders in application development, operations and support. This kind of continuous intradepartmental input will significantly boost the likelihood that a great application will also meet user needs and expectations.</p>
+
+<hr />
+
+<p>GitHub is how people build software. Trusted by over 40 million developers and half of the Fortune 500, GitHub helps DevOps teams of every size collaborate securely— and deliver better customer experiences, faster. To start your free trial or learn more about GitHub’s on-premises and SaaS solutions, visit
+<a href="https://github.com/business">https://github.com/business</a>.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>“2018 State of DevOps Report: Practical guidance for your DevOps evolution,” Puppet blog, September 2018. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>“Social coding in GitHub: Transparency and Collaboration in an Open Software Repository,” jsntsay.com, 2012. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+            <!-- speakers -->
+            
+
+            <!-- see all [ resource type ] -->
+            <a class="d-inline-block mt-4 link-mktg" href="/whitepapers">See all whitepapers &rarr;</a>
+          </article>
+
+          <!-- contact-sales-form -->
+          <div class="permalink-single-column-form bg-gray border-gray-dark border rounded-1 px-4 py-4">
+            <h5 class="mb-2"><span class="text-mono f5 text-gray-dark lh-big underline-dashed">Contact sales</span></h5>
+            
+              <h3 class="mb-4 h3-mktg">Wondering how GitHub can help your business?<br>Tell us more about your needs.</h3>
+            
+
+            <form id="eloquaForm" name="ContactUs_TemplateForm" method="post" action="https://s88570519.t.eloqua.com/e/f2" novalidate class="d-flex flex-column">
+  <input value="ContactUs_TemplateForm" type="hidden" name="elqFormName">
+  <input value="88570519" type="hidden" name="elqSiteId">
+  <input name="elqCampaignId" type="hidden">
+
+  <div class="d-sm-flex flex-items-end">
+    <div class="col-sm-6 mr-sm-2">
+      <div class="mb-2">
+        <label for="field0" class="d-block mb-1 f5">
+          Full name
+        </label>
+        <input id="field0" name="fullName1" type="text" class="form-control form-control-lg input-block" placeholder="First and last name" required>
+        <span class="form-control-invalid-text">Your full name is required.</span>
+      </div>
+
+      <div class="mb-2">
+        <label for="field1" class="d-block mb-1 f5">
+          Work email address
+        </label>
+        <input id="field1" name="emailAddress" type="email" class="form-control form-control-lg input-block" placeholder="you@example.com" required>
+        <span class="form-control-invalid-text">A valid email address is required.</span>
+      </div>
+
+      <div class="mb-2">
+        <label for="field2" class="d-block mb-1 f5">
+          Company
+        </label>
+        <input id="field2" name="company" type="text" class="form-control form-control-lg input-block" placeholder="Acme, Inc" required>
+        <span class="form-control-invalid-text">A valid company name is required.</span>
+      </div>
+
+      <div class="mb-2">
+        <label for="field5" class="d-block mb-1 f5">
+          What can we help you with?
+        </label>
+        <textarea id="field5" name="contactComments" type="text" class="form-control form-control-lg input-block height-full" rows="4" placeholder="Tell us how we can help. For support questions, head to github.com/contact" maxlength="1000" required></textarea>
+        <span class="form-control-invalid-text">A valid comment is required.</span>
+      </div>
+    </div>
+
+    <div class="col-sm-6 ml-sm-2 mb-2">
+        <img src="/assets/img/site/octocat-company.svg" alt="Octocat sitting at a desk working on a computer"/>
+    </div>
+  </div>
+
+  <input id="country" type="hidden" name="country" value="">
+  <input id="subdivision" type="hidden" name="subdivision" value="">
+  <input id="city" type="hidden" name="city" value="">
+  <input type="hidden" name="elqCustomerGUID" value="">
+  <input type="hidden" name="elqCookieWrite" value="0">
+  <input id="sfcampaignid" type="hidden" name="sfcampaignid" value="7010V000002CERx">
+  <input id="source" type="hidden" name="source" value="Seven tips for faster development with DevOps">
+
+  <button type="submit" class="btn-mktg mt-3 f4 flex-self-start">Contact GitHub</button>
+</form>
+
+<script>
+if (!doNotTrackEnabled) {
+  var form = document.getElementById('eloquaForm');
+}
+</script>
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!--  show related resources if there are tags -->
+    
+      <!-- variable allResources gets used multiple times on this page -->
+<!-- only show events/webcasts that are not hidden and english resources -->
+
+
+
+
+<!--// Using "related" approach outlined here: https://blog.webjeda.com/jekyll-related-posts/ //-->
+
+
+
+
+
+<!--// Check to see if there are any related resources first //-->
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+
+  <aside class="container-xl mx-auto gutter gutter-lg-spacious">
+    <div class="gutter gutter-lg-spacious mx-auto d-flex flex-justify-center flex-wrap">
+      <h3 class="mb-5 col-12"><span class="text-mono f4 lh-big underline-dashed">Related</span></h3>
+      
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+
+        
+      
+
+      
+
+      
+      
+
+      
+      
+
+      
+
+
+
+
+
+
+<!-- Generate random number between 1-3 to set class for cover image design -->
+
+
+
+
+
+<figure class="col-12 col-sm-6 col-lg-4 mb-8">
+  <a class="Bump-link no-underline text-white" href="/whitepapers/Collaborating-DevOps-culture/">
+    <div class="callout-permalink-cover cover-2 whitepaper-2 position-relative p-3 mb-3 rounded-1 d-flex flex-justify-between flex-column" style="min-height: 256px;">
+      <div class="d-flex flex-justify-between">
+        <span class="d-block text-mono text-white f5 mb-2 position-relative" style="z-index: 4;">Whitepaper</span>
+          <!--// Create an array of publicly-visible tags for this resource //-->
+
+
+
+
+
+
+<!--// Render icon for tag if it is in the site.tags_with_icons list -->
+<div class="d-flex">
+  
+  
+  <span class="tooltipped tooltipped-sw" aria-label="tagged: devops">
+    <div class="cover-icon-bg d-flex flex-justify-center flex-items-center position-relative" style="z-index: 4; border-radius: 50%; width: 42px; height: 42px;">
+      <img src="/assets/img/tag-icons/devops.svg">
+    </div>
+  </span>
+  
+  
+</div>
+
+      </div>
+      <h3 class="hover-link h3-mktg link-white text-white position-relative" style="z-index: 4;">Collaborating in DevOps Culture</h3>
+      <!-- WHITEPAPER/ Purple -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#5A32A3"/></svg>
+<svg class="cover-decor cover-gradient cover-callout whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#3A1D6E"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#wp-2)"/><defs><linearGradient id="wp-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#3A1D6E"/><stop offset="1" stop-color="#3A1D6E" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid whitepaper-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#4C2888"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#4C2888"/><stop offset="1" stop-color="#4C2888" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- WEBCASTS / blue -->
+<!-- version 1 -->
+<svg class="cover-decor cover-gradient webcast-1-decor position-absolute bottom-0 right-4" style="z-index: 3;" width="290" height="238" viewBox="0 0 290 238" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 186.048v-77.521C17.015 45.987 74.204 0 142.134 0c81.345 0 147.288 65.943 147.288 147.288 0 33.762-11.36 64.872-30.466 89.714H25.313C13.798 222.03 5.097 204.782 0 186.048z" fill="url(#w-1)"/><defs><linearGradient id="w-1" x1="341" y1="228.5" x2="98.5" y2="54.5" gradientUnits="userSpaceOnUse"><stop stop-color="#005CC5"/><stop offset="1" stop-color="#005CC5" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid webcast-2-decor position-absolute bottom-10 left-12" style="z-index: 1;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="#032F62"/></svg>
+<svg class="cover-decor cover-gradient webcast-2-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="177" height="203" viewBox="0 0 177 203" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M150.244 202.049H3a3 3 0 0 1-3-3V11.398C15.877 4.08 33.553 0 52.181 0 121.118 0 177 55.883 177 124.818c0 29.16-9.999 55.984-26.756 77.231z" fill="url(#w-2)"/><defs><linearGradient id="w-2" x1="130" y1="138.59" x2="136.499" y2="47.59" gradientUnits="userSpaceOnUse"><stop stop-color="#032F62"/><stop offset="1" stop-color="#032F62" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-gradient webcast-3-decor position-absolute bottom-0" style="z-index: 3;" width="363" height="167" viewBox="0 0 363 167" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 167h363C363 66.919 281.74 0 181.5 0S0 66.919 0 167z" fill="url(#w-3)"/><defs><linearGradient id="w-3" x1="85" y1="38.5" x2="181.5" y2="167" gradientUnits="userSpaceOnUse"><stop stop-color="#044289"/><stop offset="1" stop-color="#044289" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- VIDEOS / orange -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid video-1-decor position-absolute top-9 right-12" style="z-index: 1;"  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#E36209" d="M0 0h48v48H0z"/></svg>
+<svg class="cover-decor cover-gradient video-1-decor position-absolute top-0 right-0" style="z-index: 3;" width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h153a3 3 0 0 1 3 3v150a3 3 0 0 1-3 3H0V0z" fill="url(#v-1)"/><defs><linearGradient id="v-1" x1="137" y1="142" x2="21.93" y2="13.063" gradientUnits="userSpaceOnUse"><stop stop-color="#E36209"/><stop offset=".991" stop-color="#E36209" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid video-2-decor position-absolute bottom-0 left-0" style="z-index: 1;"  width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h253v256H3a3 3 0 0 1-3-3V3z" fill="#C24E00"/></svg>
+<svg class="cover-decor cover-gradient video-2-decor position-absolute bottom-0 right-7" style="z-index: 3;" width="157" height="157" viewBox="0 0 157 157" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(180 157 157)" fill="url(#v-2)" d="M157 157h157v157H157z"/><defs><linearGradient id="v-2" x1="187" y1="193" x2="291.5" y2="314" gradientUnits="userSpaceOnUse"><stop stop-color="#C24E00"/><stop offset="1" stop-color="#C24E00" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid video-3-decor position-absolute bottom-8 right-8" style="z-index: 1;" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#D15704" d="M0 0h43v43H0z"/></svg>
+<svg class="cover-decor cover-gradient video-3-decor position-absolute top-0 right-0" style="z-index: 3;" width="177" height="177" viewBox="0 0 177 177" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M177 177H0V0h174a3 3 0 0 1 3 3v174z" fill="url(#v-3)"/><defs><linearGradient id="v-3" x1="147.847" y1="97.177" x2="0" y2="97.177" gradientUnits="userSpaceOnUse"><stop stop-color="#D15704"/><stop offset="1" stop-color="#D15704" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- CUSTOMER STORIES / green -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#22863A"/></svg>
+<svg class="cover-decor cover-gradient customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-1)"/><defs><linearGradient id="cs-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#22863A"/><stop offset="1" stop-color="#22863A" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#165C26"/></svg>
+<svg class="cover-decor cover-gradient customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#cs-2)"/><defs><linearGradient id="cs-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#165C26"/><stop offset="1" stop-color="#165C26" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid customer-story-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#176F2C"/></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#176F2C"/><stop offset="1" stop-color="#176F2C" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<div class="cover-dots position-absolute" style="content: ''; z-index: 2;"></div>
+
+    </div>
+
+    <span class="d-inline-block mb-2 text-mono f5 text-gray">November 3, 2019</span>
+    <figcaption class="f5 text-gray mb-3">Enterprises are learning that a large measure of success for adopting DevOps is the spirit of collaboration it instills among teams.</figcaption>
+    <span class="h5-mktg text-blue-mktg">View&nbsp;<span class="Bump-link-symbol">→</span></span>
+  </a>
+</figure>
+
+
+        
+        
+        
+
+        
+      
+
+      
+
+      
+      
+
+      
+      
+
+      
+
+
+
+
+
+
+<!-- Generate random number between 1-3 to set class for cover image design -->
+
+
+
+
+
+<figure class="col-12 col-sm-6 col-lg-4 mb-8">
+  <a class="Bump-link no-underline text-white" href="/whitepapers/Architects-guide-to-DevOps/">
+    <div class="callout-permalink-cover cover-1 whitepaper-1 position-relative p-3 mb-3 rounded-1 d-flex flex-justify-between flex-column" style="min-height: 256px;">
+      <div class="d-flex flex-justify-between">
+        <span class="d-block text-mono text-white f5 mb-2 position-relative" style="z-index: 4;">Whitepaper</span>
+          <!--// Create an array of publicly-visible tags for this resource //-->
+
+
+
+
+
+
+<!--// Render icon for tag if it is in the site.tags_with_icons list -->
+<div class="d-flex">
+  
+  
+  <span class="tooltipped tooltipped-sw" aria-label="tagged: devops">
+    <div class="cover-icon-bg d-flex flex-justify-center flex-items-center position-relative" style="z-index: 4; border-radius: 50%; width: 42px; height: 42px;">
+      <img src="/assets/img/tag-icons/devops.svg">
+    </div>
+  </span>
+  
+  
+  
+  <span class="tooltipped tooltipped-sw" aria-label="tagged: security">
+    <div class="cover-icon-bg d-flex flex-justify-center flex-items-center position-relative ml-1" style="z-index: 4; border-radius: 50%; width: 42px; height: 42px;">
+      <img src="/assets/img/tag-icons/security.svg">
+    </div>
+  </span>
+  
+  
+</div>
+
+      </div>
+      <h3 class="hover-link h3-mktg link-white text-white position-relative" style="z-index: 4;">The enterprise architect's guide to DevSecOps</h3>
+      <!-- WHITEPAPER/ Purple -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#5A32A3"/></svg>
+<svg class="cover-decor cover-gradient cover-callout whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#3A1D6E"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#wp-2)"/><defs><linearGradient id="wp-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#3A1D6E"/><stop offset="1" stop-color="#3A1D6E" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid whitepaper-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#4C2888"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#4C2888"/><stop offset="1" stop-color="#4C2888" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- WEBCASTS / blue -->
+<!-- version 1 -->
+<svg class="cover-decor cover-gradient webcast-1-decor position-absolute bottom-0 right-4" style="z-index: 3;" width="290" height="238" viewBox="0 0 290 238" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 186.048v-77.521C17.015 45.987 74.204 0 142.134 0c81.345 0 147.288 65.943 147.288 147.288 0 33.762-11.36 64.872-30.466 89.714H25.313C13.798 222.03 5.097 204.782 0 186.048z" fill="url(#w-1)"/><defs><linearGradient id="w-1" x1="341" y1="228.5" x2="98.5" y2="54.5" gradientUnits="userSpaceOnUse"><stop stop-color="#005CC5"/><stop offset="1" stop-color="#005CC5" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid webcast-2-decor position-absolute bottom-10 left-12" style="z-index: 1;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="#032F62"/></svg>
+<svg class="cover-decor cover-gradient webcast-2-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="177" height="203" viewBox="0 0 177 203" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M150.244 202.049H3a3 3 0 0 1-3-3V11.398C15.877 4.08 33.553 0 52.181 0 121.118 0 177 55.883 177 124.818c0 29.16-9.999 55.984-26.756 77.231z" fill="url(#w-2)"/><defs><linearGradient id="w-2" x1="130" y1="138.59" x2="136.499" y2="47.59" gradientUnits="userSpaceOnUse"><stop stop-color="#032F62"/><stop offset="1" stop-color="#032F62" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-gradient webcast-3-decor position-absolute bottom-0" style="z-index: 3;" width="363" height="167" viewBox="0 0 363 167" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 167h363C363 66.919 281.74 0 181.5 0S0 66.919 0 167z" fill="url(#w-3)"/><defs><linearGradient id="w-3" x1="85" y1="38.5" x2="181.5" y2="167" gradientUnits="userSpaceOnUse"><stop stop-color="#044289"/><stop offset="1" stop-color="#044289" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- VIDEOS / orange -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid video-1-decor position-absolute top-9 right-12" style="z-index: 1;"  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#E36209" d="M0 0h48v48H0z"/></svg>
+<svg class="cover-decor cover-gradient video-1-decor position-absolute top-0 right-0" style="z-index: 3;" width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h153a3 3 0 0 1 3 3v150a3 3 0 0 1-3 3H0V0z" fill="url(#v-1)"/><defs><linearGradient id="v-1" x1="137" y1="142" x2="21.93" y2="13.063" gradientUnits="userSpaceOnUse"><stop stop-color="#E36209"/><stop offset=".991" stop-color="#E36209" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid video-2-decor position-absolute bottom-0 left-0" style="z-index: 1;"  width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h253v256H3a3 3 0 0 1-3-3V3z" fill="#C24E00"/></svg>
+<svg class="cover-decor cover-gradient video-2-decor position-absolute bottom-0 right-7" style="z-index: 3;" width="157" height="157" viewBox="0 0 157 157" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(180 157 157)" fill="url(#v-2)" d="M157 157h157v157H157z"/><defs><linearGradient id="v-2" x1="187" y1="193" x2="291.5" y2="314" gradientUnits="userSpaceOnUse"><stop stop-color="#C24E00"/><stop offset="1" stop-color="#C24E00" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid video-3-decor position-absolute bottom-8 right-8" style="z-index: 1;" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#D15704" d="M0 0h43v43H0z"/></svg>
+<svg class="cover-decor cover-gradient video-3-decor position-absolute top-0 right-0" style="z-index: 3;" width="177" height="177" viewBox="0 0 177 177" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M177 177H0V0h174a3 3 0 0 1 3 3v174z" fill="url(#v-3)"/><defs><linearGradient id="v-3" x1="147.847" y1="97.177" x2="0" y2="97.177" gradientUnits="userSpaceOnUse"><stop stop-color="#D15704"/><stop offset="1" stop-color="#D15704" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- CUSTOMER STORIES / green -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#22863A"/></svg>
+<svg class="cover-decor cover-gradient customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-1)"/><defs><linearGradient id="cs-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#22863A"/><stop offset="1" stop-color="#22863A" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#165C26"/></svg>
+<svg class="cover-decor cover-gradient customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#cs-2)"/><defs><linearGradient id="cs-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#165C26"/><stop offset="1" stop-color="#165C26" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid customer-story-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#176F2C"/></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#176F2C"/><stop offset="1" stop-color="#176F2C" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<div class="cover-dots position-absolute" style="content: ''; z-index: 2;"></div>
+
+    </div>
+
+    <span class="d-inline-block mb-2 text-mono f5 text-gray">November 3, 2019</span>
+    <figcaption class="f5 text-gray mb-3">Enterprise DevOps is here to stay. But enterprise architects have long understood what DevOps leaders are just discovering—security, not only shipping, is a ...</figcaption>
+    <span class="h5-mktg text-blue-mktg">View&nbsp;<span class="Bump-link-symbol">→</span></span>
+  </a>
+</figure>
+
+
+        
+        
+        
+
+        
+      
+
+      
+
+      
+      
+
+      
+      
+
+      
+
+
+
+
+
+
+<!-- Generate random number between 1-3 to set class for cover image design -->
+
+
+
+
+
+<figure class="col-12 col-sm-6 col-lg-4 mb-8">
+  <a class="Bump-link no-underline text-white" href="/whitepapers/GitHub-Actions-adds-CI-CD/">
+    <div class="callout-permalink-cover cover-1 whitepaper-1 position-relative p-3 mb-3 rounded-1 d-flex flex-justify-between flex-column" style="min-height: 256px;">
+      <div class="d-flex flex-justify-between">
+        <span class="d-block text-mono text-white f5 mb-2 position-relative" style="z-index: 4;">Whitepaper</span>
+          <!--// Create an array of publicly-visible tags for this resource //-->
+
+
+
+
+
+
+<!--// Render icon for tag if it is in the site.tags_with_icons list -->
+<div class="d-flex">
+  
+  
+  <span class="tooltipped tooltipped-sw" aria-label="tagged: devops">
+    <div class="cover-icon-bg d-flex flex-justify-center flex-items-center position-relative" style="z-index: 4; border-radius: 50%; width: 42px; height: 42px;">
+      <img src="/assets/img/tag-icons/devops.svg">
+    </div>
+  </span>
+  
+  
+</div>
+
+      </div>
+      <h3 class="hover-link h3-mktg link-white text-white position-relative" style="z-index: 4;">IDC Report: GitHub Actions adds CI/CD to augment DevOps pipeline collaboration</h3>
+      <!-- WHITEPAPER/ Purple -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#5A32A3"/></svg>
+<svg class="cover-decor cover-gradient cover-callout whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-1)"/><defs><linearGradient id="wp-1" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#3A1D6E"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#wp-2)"/><defs><linearGradient id="wp-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#3A1D6E"/><stop offset="1" stop-color="#3A1D6E" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid whitepaper-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#4C2888"/></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#4C2888"/><stop offset="1" stop-color="#4C2888" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient whitepaper-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#wp-3)"/><defs><linearGradient id="wp-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- WEBCASTS / blue -->
+<!-- version 1 -->
+<svg class="cover-decor cover-gradient webcast-1-decor position-absolute bottom-0 right-4" style="z-index: 3;" width="290" height="238" viewBox="0 0 290 238" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 186.048v-77.521C17.015 45.987 74.204 0 142.134 0c81.345 0 147.288 65.943 147.288 147.288 0 33.762-11.36 64.872-30.466 89.714H25.313C13.798 222.03 5.097 204.782 0 186.048z" fill="url(#w-1)"/><defs><linearGradient id="w-1" x1="341" y1="228.5" x2="98.5" y2="54.5" gradientUnits="userSpaceOnUse"><stop stop-color="#005CC5"/><stop offset="1" stop-color="#005CC5" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid webcast-2-decor position-absolute bottom-10 left-12" style="z-index: 1;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="#032F62"/></svg>
+<svg class="cover-decor cover-gradient webcast-2-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="177" height="203" viewBox="0 0 177 203" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M150.244 202.049H3a3 3 0 0 1-3-3V11.398C15.877 4.08 33.553 0 52.181 0 121.118 0 177 55.883 177 124.818c0 29.16-9.999 55.984-26.756 77.231z" fill="url(#w-2)"/><defs><linearGradient id="w-2" x1="130" y1="138.59" x2="136.499" y2="47.59" gradientUnits="userSpaceOnUse"><stop stop-color="#032F62"/><stop offset="1" stop-color="#032F62" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-gradient webcast-3-decor position-absolute bottom-0" style="z-index: 3;" width="363" height="167" viewBox="0 0 363 167" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 167h363C363 66.919 281.74 0 181.5 0S0 66.919 0 167z" fill="url(#w-3)"/><defs><linearGradient id="w-3" x1="85" y1="38.5" x2="181.5" y2="167" gradientUnits="userSpaceOnUse"><stop stop-color="#044289"/><stop offset="1" stop-color="#044289" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- VIDEOS / orange -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid video-1-decor position-absolute top-9 right-12" style="z-index: 1;"  width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#E36209" d="M0 0h48v48H0z"/></svg>
+<svg class="cover-decor cover-gradient video-1-decor position-absolute top-0 right-0" style="z-index: 3;" width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h153a3 3 0 0 1 3 3v150a3 3 0 0 1-3 3H0V0z" fill="url(#v-1)"/><defs><linearGradient id="v-1" x1="137" y1="142" x2="21.93" y2="13.063" gradientUnits="userSpaceOnUse"><stop stop-color="#E36209"/><stop offset=".991" stop-color="#E36209" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid video-2-decor position-absolute bottom-0 left-0" style="z-index: 1;"  width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h253v256H3a3 3 0 0 1-3-3V3z" fill="#C24E00"/></svg>
+<svg class="cover-decor cover-gradient video-2-decor position-absolute bottom-0 right-7" style="z-index: 3;" width="157" height="157" viewBox="0 0 157 157" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(180 157 157)" fill="url(#v-2)" d="M157 157h157v157H157z"/><defs><linearGradient id="v-2" x1="187" y1="193" x2="291.5" y2="314" gradientUnits="userSpaceOnUse"><stop stop-color="#C24E00"/><stop offset="1" stop-color="#C24E00" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid video-3-decor position-absolute bottom-8 right-8" style="z-index: 1;" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#D15704" d="M0 0h43v43H0z"/></svg>
+<svg class="cover-decor cover-gradient video-3-decor position-absolute top-0 right-0" style="z-index: 3;" width="177" height="177" viewBox="0 0 177 177" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M177 177H0V0h174a3 3 0 0 1 3 3v174z" fill="url(#v-3)"/><defs><linearGradient id="v-3" x1="147.847" y1="97.177" x2="0" y2="97.177" gradientUnits="userSpaceOnUse"><stop stop-color="#D15704"/><stop offset="1" stop-color="#D15704" stop-opacity="0"/></linearGradient></defs></svg>
+
+<!-- CUSTOMER STORIES / green -->
+<!-- version 1 -->
+<svg class="cover-decor cover-solid customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 1;" width="360" height="80" viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 80h354L0 0v74c0 2.828 0 4.243.879 5.121C1.757 80 3.172 80 6 80z" fill="#22863A"/></svg>
+<svg class="cover-decor cover-gradient customer-story-1-decor position-absolute bottom-0 left-0" style="z-index: 3;" width="400" height="128" viewBox="0 0 400 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h400v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-1)"/><defs><linearGradient id="cs-1" x1="453" y1="140" x2="416.809" y2="-91.725" gradientUnits="userSpaceOnUse"><stop stop-color="#22863A"/><stop offset="1" stop-color="#22863A" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 2 -->
+<svg class="cover-decor cover-solid customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 1;" width="72" height="252" viewBox="0 0 72 252" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M69 252H0L72 0v249a3 3 0 0 1-3 3z" fill="#165C26"/></svg>
+<svg class="cover-decor cover-gradient customer-story-2-decor position-absolute bottom-0 right-0" style="z-index: 3;" width="93" height="256" viewBox="0 0 93 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M90 0a3 3 0 0 1 3 3v250a3 3 0 0 1-3 3H0V0h90z" fill="url(#cs-2)"/><defs><linearGradient id="cs-2" x1="45.623" y1="247.331" x2="45.623" y2="3.06" gradientUnits="userSpaceOnUse"><stop stop-color="#165C26"/><stop offset="1" stop-color="#165C26" stop-opacity="0"/></linearGradient></defs></svg>
+<!-- version 3 -->
+<svg class="cover-decor cover-solid customer-story-3-decor position-absolute top-0 left-0" style="z-index: 1;" width="400" height="84" viewBox="0 0 400 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 0h397L0 84V3a3 3 0 0 1 3-3z" fill="#176F2C"/></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor cover-callout position-absolute top-0 left-0" style="z-index: 3;" width="400" height="117" viewBox="0 0 400 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3a3 3 0 0 1 3-3h394a3 3 0 0 1 3 3v111a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="381" y1="20.188" x2="87.081" y2="119.282" gradientUnits="userSpaceOnUse"><stop stop-color="#176F2C"/><stop offset="1" stop-color="#176F2C" stop-opacity="0"/></linearGradient></defs></svg>
+<svg class="cover-decor cover-gradient customer-story-3-decor-permalink position-absolute top-0 left-0" style="z-index: 3;" width="979" height="128" viewBox="0 0 979 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h979v125a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0z" fill="url(#cs-3)"/><defs><linearGradient id="cs-3" x1="1108.72" y1="140" x2="1093.63" y2="-96.415" gradientUnits="userSpaceOnUse"><stop stop-color="#5A32A3"/><stop offset="1" stop-color="#5A32A3" stop-opacity="0"/></linearGradient></defs></svg>
+
+<div class="cover-dots position-absolute" style="content: ''; z-index: 2;"></div>
+
+    </div>
+
+    <span class="d-inline-block mb-2 text-mono f5 text-gray">October 30, 2019</span>
+    <figcaption class="f5 text-gray mb-3">More and more organizations are using DevOps to get things done—and now, they can do it in the same place they code. This IDC report dives into how GitHub’s ...</figcaption>
+    <span class="h5-mktg text-blue-mktg">View&nbsp;<span class="Bump-link-symbol">→</span></span>
+  </a>
+</figure>
+
+
+        
+        
+        
+      </div>
+  </aside>
+
+
+    
+
+    <div class="footer mt-6">
+  <div class="container-xl px-3 px-md-4">
+    <div class="d-flex flex-wrap py-5 mb-5">
+      <div class="col-12 col-lg-4 mb-5">
+        <a href="https://github.com/" data-ga-click="Resources, go to Homepage, resources footer (wordmark)" class="text-gray-dark" aria-label="Go to GitHub homepage">
+          <svg height="30" class="octicon octicon-logo-github" viewBox="0 0 45 16" version="1.1" width="84" aria-hidden="true"><path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 0 0-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"></path></svg>
+        </a>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-lg-0 pl-lg-4">
+        <h4 class="mb-3 text-mono text-gray-light text-normal">Product</h4>
+        <ul class="list-style-none text-gray f5">
+          <li class="lh-condensed mb-3"><a href="https://github.com/features" data-ga-click="Resources, go to Features, resources footer" class="link-gray">Features</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/security" data-ga-click="Resources, go to Security, resources footer" class="link-gray">Security</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/enterprise" data-ga-click="Resources, go to Enterprise, resources footer" class="link-gray">Enterprise</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/customer-stories" data-ga-click="Resources, go to Customer stories, resources footer" class="link-gray">Customer stories</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/pricing" data-ga-click="Resources, go to Pricing, resources footer" class="link-gray">Pricing</a></li>
+          <li class="lh-condensed mb-3"><a href="https://resources.github.com" data-ga-click="Resources, go to Resources, resources footer" class="link-gray">Resources</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h4 class="mb-3 text-mono text-gray-light text-normal">Platform</h4>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://developer.github.com/" data-ga-click="Resources, go to Developer API, resources footer" class="link-gray">Developer API</a></li>
+          <li class="lh-condensed mb-3"><a href="http://partner.github.com/" data-ga-click="Resources, go to Partners, resources footer" class="link-gray">Partners</a></li>
+          <li class="lh-condensed mb-3"><a href="https://atom.io" data-ga-click="Resources, go to Atom, resources footer" class="link-gray">Atom</a></li>
+          <li class="lh-condensed mb-3"><a href="http://electron.atom.io/" data-ga-click="Resources, go to Electron, resources footer" class="link-gray">Electron</a></li>
+          <li class="lh-condensed mb-3"><a href="https://desktop.github.com/" data-ga-click="Resources, go to GitHub Desktop, resources footer" class="link-gray">GitHub Desktop</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h4 class="mb-3 text-mono text-gray-light text-normal">Support</h4>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://help.github.com/en" data-ga-click="Resources, go to Help, resources footer" class="link-gray">Help</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.community" data-ga-click="Resources, go to Community Forum, resources footer" class="link-gray">Community Forum</a></li>
+          <li class="lh-condensed mb-3"><a href="https://services.github.com" data-ga-click="Resources, go to Professional Services, resources footer" class="link-gray">Professional Services</a></li>
+          <li class="lh-condensed mb-3"><a href="https://lab.github.com/" data-ga-click="Resources, go to Learning Lab, resources footer" class="link-gray">Learning Lab</a></li>
+          <li class="lh-condensed mb-3"><a href="https://githubstatus.com/" data-ga-click="Resources, go to Status, resources footer" class="link-gray">Status</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/contact" data-ga-click="Resources, go to Contact GitHub, resources footer" class="link-gray">Contact GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4">
+        <h4 class="mb-3 text-mono text-gray-light text-normal">Company</h4>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://github.com/about" data-ga-click="Resources, go to About, resources footer" class="link-gray">About</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.blog/" data-ga-click="Resources, go to Blog, resources footer" class="link-gray">Blog</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/careers" data-ga-click="Resources, go to Careers, resources footer" class="link-gray">Careers</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/press" data-ga-click="Resources, go to Press, resources footer" class="link-gray">Press</a></li>
+          <li class="lh-condensed mb-3"><a href="https://shop.github.com" data-ga-click="Resources, go to Shop, resources footer" class="link-gray">Shop</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-light">
+    <div class="container-xl px-3 px-md-4 f6 py-4 d-sm-flex flex-justify-between flex-row-reverse flex-items-center">
+      <ul class="list-style-none d-flex flex-items-center mb-3 mb-sm-0 lh-condensed-ultra">
+        <li class="mr-3">
+          <a href="https://twitter.com/github" title="GitHub on Twitter" style="color: #959da5;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" class="d-block" height="18"><path d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1" fill="currentColor"></path></svg>
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://www.facebook.com/GitHub" title="GitHub on Facebook" style="color: #959da5;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.3 15.4" class="d-block" height="18"><path d="M14.5 0H.8a.88.88 0 0 0-.8.9v13.6a.88.88 0 0 0 .8.9h7.3v-6h-2V7.1h2V5.4a2.87 2.87 0 0 1 2.5-3.1h.5a10.87 10.87 0 0 1 1.8.1v2.1h-1.3c-1 0-1.1.5-1.1 1.1v1.5h2.3l-.3 2.3h-2v5.9h3.9a.88.88 0 0 0 .9-.8V.8a.86.86 0 0 0-.8-.8z" fill="currentColor"></path></svg>
+          </a>
+        </li>
+        <li class="mr-3">
+          <a href="https://www.youtube.com/github" title="GitHub on YouTube" style="color: #959da5;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.17 13.6" class="d-block" height="16"><path d="M18.77 2.13A2.4 2.4 0 0 0 17.09.42C15.59 0 9.58 0 9.58 0a57.55 57.55 0 0 0-7.5.4A2.49 2.49 0 0 0 .39 2.13 26.27 26.27 0 0 0 0 6.8a26.15 26.15 0 0 0 .39 4.67 2.43 2.43 0 0 0 1.69 1.71c1.52.42 7.5.42 7.5.42a57.69 57.69 0 0 0 7.51-.4 2.4 2.4 0 0 0 1.68-1.71 25.63 25.63 0 0 0 .4-4.67 24 24 0 0 0-.4-4.69zM7.67 9.71V3.89l5 2.91z" fill="currentColor"></path></svg>
+          </a>
+        </li>
+        <li class="mr-3 flex-self-start">
+          <a href="https://www.linkedin.com/company/github" title="GitHub on Linkedin" style="color: #959da5;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18" class="d-block" height="18"><path d="M3.94 2A2 2 0 1 1 2 0a2 2 0 0 1 1.94 2zM4 5.48H0V18h4zm6.32 0H6.34V18h3.94v-6.57c0-3.66 4.77-4 4.77 0V18H19v-7.93c0-6.17-7.06-5.94-8.72-2.91z" fill="currentColor"></path></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/github" title="GitHub's organization" style="color: #959da5;">
+            <svg height="20" fill="#959da5" class="octicon octicon-mark-github d-block" alt="GitHub" viewBox="0 0 16 16" version="1.1" width="20" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="list-style-none d-flex text-gray">
+        <li class="mr-3">&copy; 2020 GitHub, Inc.</li>
+        <li class="mr-3"><a href="https://help.github.com/en/articles/github-terms-of-service/" class="link-gray">Terms </a></li>
+        <li><a href="https://help.github.com/en/articles/github-privacy-statement/" class="link-gray">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/github.js"></script>
+<script src="/assets/js/github/header.js"></script>
+<script src="/assets/js/github/google-analytics.js"></script>
+
+
+<script src="https://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+<script src="/assets/js/marketing.js"></script>
+<div class="g-recaptcha"
+  data-sitekey="6LfpN0gUAAAAANaXI_h9p7HcNe1pp_jkUlwqG4w8"
+  data-callback="onSubmit"
+  data-size="invisible">
+</div>
+<script>
+  var form = document.getElementById("eloquaForm");
+  if(form) {
+    var captcha = document.querySelector('.g-recaptcha').cloneNode(true);
+    form.appendChild(captcha);
+  }
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+      <title>DigitalOcean API</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <link rel="alternate" type="application/rss+xml" title="API Changelog | DigitalOcean" href="/changelog/feed.atom"/>
+
+      <link href="/assets/css/style-api-v2-3cebe820.css" rel="stylesheet" type="text/css" />
+          <link href="/assets/css/vendor/pure-min-79d7e226.css" rel="stylesheet" type="text/css" /><link href="/assets/css/vendor/pikabu-22255a87.css" rel="stylesheet" type="text/css" /><link href="/assets/css/vendor/swiper-74ae3263.css" rel="stylesheet" type="text/css" /><link href="/assets/css/fonts-eb9664bc.css" rel="stylesheet" type="text/css" /><link href="/assets/css/homepage-3f9da395.css" rel="stylesheet" type="text/css" /><link href="/assets/css/mobile-menu-be990f4f.css" rel="stylesheet" type="text/css" /><link href="/assets/css/retarget-24d8eec2.css" rel="stylesheet" type="text/css" /><link href="/assets/css/docs-23eb39a1.css" rel="stylesheet" type="text/css" /><link href="/assets/css/footer-c53ee1c1.css" rel="stylesheet" type="text/css" />
+
+    <link type="image/ico" href="/assets/images/favicon.ico" rel="icon" />
+
+    <script type="text/javascript" src="//use.typekit.net/njm7orv.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <script type="text/javascript">
+  window.cookieDomain = '.digitalocean.com';
+</script>
+<script src="https://assets.digitalocean.com/cookieConsent/cookieConsent.js"></script>
+<link rel="stylesheet" href="https://assets.digitalocean.com/cookieConsent/cookieConsent.css">
+
+
+
+    <!-- Segment -->
+    <script>
+  window.addEventListener('cookieconsent_statuschange', function(e) {
+    if(e.detail.status === 'deny') { return; }
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+      analytics.load("PdAqZ1G1scddUCiOO651LXOXHFaOuhxD");
+      analytics.page()
+    }}();
+  });
+</script>
+    <!-- End Segment -->
+  </head>
+  <body class="documentation documentation_index ">
+    <!-- Google Tag Manager -->
+    <script>
+  window.addEventListener('cookieconsent_statuschange', function(e) {
+    if(e.detail.status === 'deny') { return; }
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NL852V');
+  });
+</script>
+    <!-- End Google Tag Manager -->
+
+    <div class="mobile-nav">
+      <div class="m-pikabu-sidebar m-pikabu-left">
+        <a href="#" class="close-panel icon-close"></a>
+        <nav id="mobile">
+          <h4>Pages</h4>
+          <ul>
+            <li>
+              <a class="" href="/">Home</a>
+            </li>
+
+            <li>
+              <a class="" href="/guides/">Guides</a>
+            </li>
+
+            <li>
+              <a class=" active" href="/documentation/">Docs</a>
+            </li>
+
+            <li>
+              <a class="" href="/libraries/">Libraries</a>
+            </li>
+
+            <li>
+              <a class="" href="/opensource/">OpenSource</a>
+            </li>
+
+            <li class="changelog">
+              <a class="" href="/documentation/changelog/">Changelog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="m-pikabu-container">
+
+        <header>
+  <div class="wrapper-full">
+    <a href="https://www.digitalocean.com" class="logo"></a>
+    <ul>
+      <li>
+        <a class="" href="/">Home</a>
+      </li>
+
+      <li>
+        <a class="" href="/guides/">Guides</a>
+      </li>
+
+      <li>
+        <a class=" active" href="/documentation/">Docs</a>
+      </li>
+
+      <li>
+        <a class="" href="/libraries/">Libraries</a>
+      </li>
+
+      <li>
+        <a class="" href="/opensource/">OpenSource</a>
+      </li>
+
+      <li class="changelog">
+        <a class="" href="/documentation/changelog/">Changelog</a>
+      </li>
+    </ul>
+    <a class="m-pikabu-nav-toggle icon-navicon" data-role="left">
+      <span></span>
+    </a>
+  </div>
+</header>
+
+
+      
+  <div class="strip-header-docs">
+  <div class="wrapper-full">
+    <h1>Access all the information you need to build on our API.</h1>
+    <h3>Our documentation for API, OAuth, and metadata is clearly organized and easy to use.</h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrapper-full">
+    <ul class="mini-cards">
+      <li class="pure-u-1-2" id="api">
+        <h3>API</h3>
+        <p>Our RESTful API allows you to perform actions enabled by DigitalOcean control panel programmatically.</p>
+
+        <div class="usage">
+          <h4>For example</h4>
+          <p>Build an application that spins Droplets up and down depending on server load.</p>
+        </div>
+
+        <a href="/documentation/v2/">View API v2 Docs</a>
+      </li>
+
+      <li class="pure-u-1-2" id="spaces">
+        <h3>Spaces</h3>
+        <p>Programmatically manage your data with Spaces' AWS S3-compatible object storage API.</p>
+
+        <div class="usage">
+          <h4>For example</h4>
+          <p>Automatically store uploads to your website on Spaces so you don't need to worry about local storage.</p>
+        </div>
+
+        <a href="/documentation/spaces/">View Spaces Docs</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrapper-full">
+    <ul class="mini-cards">
+      <li class="pure-u-1-2" id="oauth">
+        <h3>OAuth</h3>
+        <p>This is a simple and secure method for authenticating users and allowing third party access to your server.</p>
+
+        <div class="usage">
+          <h4>For example</h4>
+          <p>OAuth enables users to sign up for your service using their DigitalOcean account.</p>
+        </div>
+
+        <a href="/documentation/oauth/">View OAuth Docs</a>
+      </li>
+
+      <li class="pure-u-1-2" id="metadata">
+        <h3>Metadata</h3>
+        <p>This allows a Droplet to access information about itself including user data, droplet ID, data center region, and IP addresses.</p>
+
+        <div class="usage">
+          <h4>For example</h4>
+          <p>Metadata allows you to easily automate the configuration of Droplet clusters. </p>
+        </div>
+        <a href="/documentation/metadata/">View Metadata Docs</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="retarget">
+  <div class="wrapper-full">
+    <h2>Other Developer Resources</h2>
+    <div class="ad" id="api">
+      <span></span>
+      <h3>Developer Guides</h3>
+      <a href="/guides/">View Guides</a>
+    </div>
+    <div class="ad" id="guides">
+      <span></span>
+      <h3>API Libraries</h3>
+      <a href="/libraries/">View Libraries</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+            <footer id="footer">
+  <div class="wrapper-full">
+    <span class="Logomark--white"></span>
+    <ul>
+      <li>
+        <a class="" href="/">Home</a>
+      </li>
+
+      <li>
+        <a class="" href="/guides/">Guides</a>
+      </li>
+
+      <li>
+        <a class=" active" href="/documentation/">Docs</a>
+      </li>
+
+      <li>
+        <a class="" href="/libraries/">Libraries</a>
+      </li>
+
+      <li>
+        <a class="" href="/opensource/">OpenSource</a>
+      </li>
+
+      <li class="changelog">
+        <a class="" href="/documentation/changelog/">Changelog</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+            <script src="/assets/js/jquery-1.10.2.min-21daab25.js" type="text/javascript"></script><script src="/assets/js/pikabu-ddd39532.js" type="text/javascript"></script><script src="/assets/js/libraries-9f748704.js" type="text/javascript"></script><script src="/assets/js/mobile-menu-b2824345.js" type="text/javascript"></script>
+
+
+    </div>
+  </body>
+</html>

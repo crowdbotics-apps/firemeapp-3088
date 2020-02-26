@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+# This is a utility script to get version
+import __version__
+print __version__.version

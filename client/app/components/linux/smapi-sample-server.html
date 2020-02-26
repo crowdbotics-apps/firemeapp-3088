@@ -1,0 +1,624 @@
+<!doctype html>
+<html class="no-js" lang="en-US" >
+
+	<head>
+		<meta charset="utf-8">
+		<title>Sonos Developer</title>
+		<meta name="description" content="With the Sonos Sound Platform, bring new ways of listening to millions of Sonos homes around the world"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="shortcut icon" href="https://developer.sonos.com/wp-content/themes/suit/assets/img/icons/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="https://developer.sonos.com/wp-content/themes/suit/assets/img/icons/apple-touch-icon.png">
+		<title>SMAPI sample server &#8211; Sonos Sound Platform</title>
+<link rel='dns-prefetch' href='//suit.sonos.com' />
+<link rel='dns-prefetch' href='//integration.sonos.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='crayon-css'  href='https://developer.sonos.com/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='https://developer.sonos.com/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='https://developer.sonos.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://developer.sonos.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mo_saml_admin_settings_style-css'  href='https://developer.sonos.com/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/css/jquery.ui.css' type='text/css' media='all' />
+<link rel='stylesheet' id='suit-css'  href='//suit.sonos.com/2.7.5/styles/min/suit.css' type='text/css' media='all' />
+<link rel='stylesheet' id='shared-css'  href='https://integration.sonos.com/assets/shared/shared.css' type='text/css' media='all' />
+<link rel='stylesheet' id='main-stylesheet-css'  href='https://developer.sonos.com/wp-content/themes/suit/css/foundation.css' type='text/css' media='all' />
+<script type='text/javascript' src='//suit.sonos.com/2.7.5/scripts/min/suit.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/developer.sonos.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developer.sonos.com/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='https://developer.sonos.com/wp-content/plugins/miniorange-saml-20-single-sign-on/includes/js/settings.js'></script>
+<link rel='https://api.w.org/' href='https://developer.sonos.com/wp-json/' />
+<link rel="alternate" type="application/json+oembed" href="https://developer.sonos.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdeveloper.sonos.com%2Ftools%2Fsample-servers%2Fsmapi-sample-server%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://developer.sonos.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdeveloper.sonos.com%2Ftools%2Fsample-servers%2Fsmapi-sample-server%2F&#038;format=xml" />
+
+    <script type='text/javascript'>
+    (function (i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] ||function ()
+        {
+            (i[r] . q = i[r] . q || []) . push(arguments)},i[r] . l = 1 * new Date();a = s . createElement(o),
+            m = s . getElementsByTagName(o)[0];a . async = 1;a . src = g;m . parentNode . insertBefore(a, m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-4124725-26', 'auto');
+
+                    ga('set', 'userId', '3964');
+                ga('send', 'pageview');
+    </script>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            // Ensure ga is included to avoid console errors
+            if (typeof ga !== 'function') return;
+            $('[ga_trackable~=click]').click(function () {
+                if (this.getAttribute('ga_category')) {
+                    ga('send', 'event', {
+                        'eventCategory': this.getAttribute('ga_category'),
+                        'eventAction': 'click'
+                    });
+                }
+            });
+        });
+    </script>
+    <script type='text/javascript'>
+        $(window).load(function () {
+            // Ensure both ga and ScrollTracker are included to avoid console errors
+            if (typeof ScrollTracker !== 'function' || typeof ga !== 'function') return;
+            const scrollTracker = window.ScrollTracker();
+            scrollTracker.on({
+                elements: {
+                    every: ['[ga_trackable~=scroll]']
+                }
+            }, function (event) {
+                // event.data.label is not helpful enough in GA dashboard so below code
+                // parses label and selects the element that it is indicating
+                const label = event.data.label, // => '[ga-trackable~=scroll][0]'
+                    num = label.match(/\[\d+]/g)[0].replace(/[\[\]]/g, ''), // => '0'
+                    elem = $('[ga_trackable~=scroll]')[num];
+
+                // Only send events for headings with a ga_category set
+                if (elem.getAttribute('ga_category')) {
+                    ga('send', 'event', {
+                        'eventCategory': elem.getAttribute('ga_category'),
+                        'eventAction': 'impression'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type='text/javascript'>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NNMTS99');
+    </script>
+		<style type="text/css" id="wp-custom-css">
+			.subheader light
+{
+    color: #222222;
+}
+
+code
+{
+background: #F2F2F2;
+border: 1px solid #AAAAAA;
+border-radius: 4px;
+}
+
+/* button unvisited */
+a:link.button {
+color: white;
+}
+
+/* button visited */
+a:visited.button {
+color: white;
+}
+
+/* button selected */
+a:active.button {
+color: white;
+}
+
+/* mouse over link */
+a:hover.button {
+color: silver;
+}
+
+/* unvisited link */
+a:link {
+color: #0070C9;
+}
+
+/* visited link */
+a:visited {
+color: #0070C9;
+}
+
+/* mouse over link */
+a:hover {
+color: #000000;
+}
+
+/* selected link */
+a:active {
+color: #0070C9;
+}
+
+h1
+{
+font-size: 40px;
+color: #222222;
+letter-spacing: 0.38px;
+line-height: 48px;
+}
+
+h2
+{
+font-size: 30px;
+color: #222222;
+letter-spacing: 0.38px;
+line-height: 48px;
+}
+
+h3
+{
+font-size: 20px;
+color: #222222;
+letter-spacing: 0.3px;
+line-height: 48px;
+}
+
+h4
+{
+font-size: 16px;
+color: #000000;
+letter-spacing: 0.17px;
+}
+
+h5
+{
+font-size: 14px;
+color: #222222;
+letter-spacing: 0.15px;
+}
+
+p
+{
+font-family: HelveticaNeue, sans-serif;
+font-size: 16px;
+color: #222222;
+letter-spacing: normal;
+line-height: 24px;
+}		</style>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400|Quattrocento+Sans:400&subset=latin" type="text/css" /><link rel="stylesheet" href="https://developer.sonos.com/wp-content/cache/css/static/2ae90549baf65408f9d659e028daf325.css" type="text/css" /><script type="text/javascript">
+(function (w, d, u) {
+    if(w.njQuery === u){
+        w.bindNextendQ = [];
+    
+        function pushToReady(x) {
+            w.bindNextendQ.push([alias.handler,"ready", x]);
+        }
+        
+        function pushToLoad(x) {
+            w.bindNextendQ.push([alias.handler,"load", x]);
+        }
+
+        var alias = {
+            handler: w,
+            ready: pushToReady,
+            load: pushToLoad
+        }
+
+        w.njQuery = function (handler) {
+            alias.handler = handler;
+            return alias;
+        }
+    }
+})(window, document);
+              </script></head>
+
+	<body class="page-template page-template-templates page-template-tools page-template-templatestools-php page page-id-11108 page-child parent-pageid-5385 logged-in" data-init data-bright-tag="false">
+
+		<div class="off-canvas-wrap sonos-off-canvas-wrap" data-offcanvas>
+			
+			
+                <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNMTS99"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+			
+			
+			<div class="sonos-bar-container contain-to-grid light">
+	<!--For large view size and up-->
+	<nav class="top-bar sonos-bar-light main-navigation show-for-large-up" data-topbar data-options="is_hover: true; back_text: <span class='icon-left-dir'></span> Back">
+		<ul class="title-area">
+			<li class="sonos-logo">
+				<a href="https://developer.sonos.com">
+					<span class="name">SONOS</span>
+					<span class="subtitle">Developer</span>
+				</a>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<ul id="menu-top-bar-left" class="left prominent-nav"><li id="menu-item-7136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7136"><a href="https://developer.sonos.com/build/">Plan &#038; Build</a></li>
+<li id="menu-item-7137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7137"><a href="https://developer.sonos.com/reference/">Reference</a></li>
+<li id="menu-item-7138" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-7138"><a href="https://developer.sonos.com/tools/">Tools</a></li>
+<li id="menu-item-7139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7139"><a href="https://developer.sonos.com/blog/">Blog</a></li>
+</ul><ul id="menu-top-bar-right" class="right aux-nav"><li class="has-form">
+								<div class="row collapse">
+									<form role="search" method="get" action="https://developer.sonos.com/" autocomplete="off">
+										<div class="small-10 columns">
+											<input type="search" class="search-field" placeholder="Search" value="" name="s" title="Search for:" />
+										</div>
+										<div class="small-2 columns">
+											<span class="icon-search right"></span>
+										</div>
+									</form>
+								</div>
+							</li><li class="account-menu has-dropdown">
+										<a>
+											My Account
+											<span class="icon-account"></span>
+										</a>
+										<ul class="dropdown"><li><a href="https://integration.sonos.com/integrations">Integrations</a></li><li><a href="https://integration.sonos.com/memberships">Users</a></li> <li><a href="https://integration.sonos.com/users/edit">Profile</a></li><li><a href="https://developer.sonos.com/wp-login.php?action=logout&#038;redirect_to=%2Ftools%2Fsample-servers%2Fsmapi-sample-server%2F&#038;_wpnonce=fdb2fc2fe5">Sign Out</a></li>
+									</ul>
+								  </li></ul>		</section>
+	</nav>
+
+	<!--For medium view size and down-->
+	<nav class="tab-bar sonos-tab-bar light hide-for-large-up">
+        <section class="left-small">
+            <a class="left-off-canvas-toggle">
+                <span class="sr-only">Menu</span>
+                <span class="icon-hamburger-on"></span>
+                <span class="icon-account"></span>
+            </a>
+        </section>
+		<section class="sonos-logo middle tab-bar-section extra-padding">
+			<a href="https://developer.sonos.com">
+				<div class="name">SONOS</div>
+				<span class="subtitle">Developer</span>
+			</a>
+		</section>
+			</nav>
+</div>
+
+
+		 	<!--Off canvas menu for medium view size and down-->
+<aside class="left-off-canvas-menu light">
+    <ul id="menu-mobile-off-canvas-account" class="off-canvas-list account-section"><li class='has-submenu'>
+									<a href='#'>My Account<span class='icon-arrow-right'></span></a>
+									<ul class='left-submenu'>
+										<li class='back'>
+											<a href='#'><span class='icon-arrow-left'></span>Back</a>
+										</li>
+										<li><a href="https://integration.sonos.com/integrations">Integrations</a></li><li><a href="https://integration.sonos.com/memberships">Users</a></li> <li><a href="https://integration.sonos.com/users/edit">Profile</a></li>
+									</ul>
+								</li>
+								<li><a href="https://developer.sonos.com/wp-login.php?action=logout&#038;redirect_to=%2Ftools%2Fsample-servers%2Fsmapi-sample-server%2F&#038;_wpnonce=fdb2fc2fe5">Sign Out</a></li></ul>    <ul id="menu-top-bar-left-1" class="off-canvas-list prominent-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7136"><a href="https://developer.sonos.com/build/">Plan &#038; Build</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7137"><a href="https://developer.sonos.com/reference/">Reference</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-7138"><a href="https://developer.sonos.com/tools/">Tools</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7139"><a href="https://developer.sonos.com/blog/">Blog</a></li>
+</ul>    <ul id="menu-mobile-off-canvas-search" class="off-canvas-list"><li class="has-form">
+								<div class="row collapse">
+									<form role="search" method="get" action="https://developer.sonos.com/" autocomplete="off">
+										<div class="small-10 columns">
+											<input type="search" class="search-field" placeholder="Search" value="" name="s" title="Search for:" />
+										</div>
+										<div class="small-2 columns">
+											<span class="icon-search right"></span>
+										</div>
+									</form>
+								</div>
+							</li></ul></aside>
+			<section class="container" role="document">
+
+				
+<div class="section has-sidebar">
+	<div class="row">
+		<div class="small-12 large-9 large-push-3 columns" role="main">
+
+			
+							<article class="post-11108 page type-page status-publish hentry" id="post-11108">
+					<header>
+													<h1 class="entry-title">SMAPI sample server</h1>
+																	</header>
+										<div class="entry-content">
+						<p>The SMAPI sample server is a Java server that uses SMAPI to create a simple music service. It provides a simple Sonos apps controller interface and serves to Sonos players a static directory of music files. It demonstrates the following features:</p>
+<ul>
+<li>Browse responses using the getMetadata method.</li>
+<li>Search responses using a search endpoint.</li>
+<li>Music playback using a music service endpoint and the getMediaURI method to serve static content.</li>
+<li>Info view using getExtendedMetadata and getExtendedMetadataText methods, which display additional information about a track.</li>
+<li>DeviceLink Authentication Mode using getDeviceLinkCode and getDeviceAuthToken methods.</li>
+</ul>
+<h1>Download, set up, build &amp; test</h1>
+<p>Download and extract the source code package and see the included README.md for installation instructions. Note that you need Java SE Development Kit 8. The sample server may not work with other versions of Java. Below we&#8217;ll briefly go over how the features were implemented.</p>
+<p><a class="button tiny" href="http://developer-assets.ws.sonos.com/files/contentapi-sample-app-src-0.1.72.tar.gz">Download Sonos Content API sample server</a></p>
+<h1>Try it out</h1>
+<p>The sample server demonstrates the core features of SMAPI. To see it in action, add the sample server to one of your Sonos players by following the instructions in <a href="https://developer.sonos.com/build/content-service-get-started/test-your-content-service/">Test your service</a>. Once you add it, you can choose the sample server as a music service source.</p>
+<p>In the Sonos app, select <strong>Services</strong> &gt; <strong>Add a Service</strong> to add the sample server as a music source. You&#8217;ll then see the DeviceLink authorization page. Follow the prompts and enter the username &#8220;acmeUser&#8221; and password &#8220;password&#8221; to authenticate.</p>
+<div class="panel two-tone dark">
+<p><strong>Note:</strong> The sample server uses an older version of authentication. See <a href="https://developer.sonos.com/build/content-service-add-features/add-authentication/">Add authentication</a> to learn how to add authentication for your service.</p>
+</div>
+<p>You should now see the sample server in your list of music sources. Open it up to browse for and play content. Try the search field to search the sample server for an artist, album, or track. You can also learn more details or perform actions on a track, such as view the album or artist information, add the track to Sonos favorites, or add it to a Sonos playlist.</p>
+<h1>Architecture</h1>
+<p>The SMAPI sample server uses <a href="http://projects.spring.io/spring-boot/">Spring Boot</a> as a Java framework and is a sample of how to implement a basic SMAPI server. It doesn&#8217;t use a content delivery network (CDN) for content, but instead serves a directory of static files. It does not include a database for metatdata nor does it persist settings across instances. If you stop the server and restart, you will need to reauthorize the user again.</p>
+<p>For this example, we use the <code>MusicServiceConfig</code> class to configure the service.</p>
+<p>The following classes implement required browse and search SMAPI methods:</p>
+<ul>
+<li><code>MusicServiceEndpoint</code></li>
+<li><code>MusicServiceGetMetadataEndpoint</code></li>
+<li><code>MusicServiceGetExtendedMetadataEndpoint</code></li>
+<li><code>MusicServiceGetExtendedMetadataTextEndpoint</code></li>
+<li><code>MusicServiceSearchEndpoint</code></li>
+</ul>
+<p>These were broken up into several classes to keep each file small. If you prefer, they could be combined into a single class.</p>
+<p>The class <code>DeviceLinkAuthenticationModeEndpoint</code> implements the SMAPI DeviceLink Authentication Mode methods. This works in conjunction with <code>DeviceLinkPageController</code>, which serves the login page.</p>
+<p>We did not implement the optional playlist editing and status reporting methods, but added placeholders in their respective classes.</p>
+<div class="panel two-tone dark">
+<p><strong>Note:</strong> See <a href="https://developer.sonos.com/build/content-service-add-features/add-playlists/">Add playlists</a> and <a href="https://developer.sonos.com/build/content-service-add-features/add-reporting/">Add reporting</a> for details. Note that we updated the reporting API after we created this sample.</p>
+</div>
+<p>The <code>MusicServiceAnnotationMethodEndpointMapping</code> class routes requests to endpoints, so that the <code>@PayloadRoot</code> parameters and the <code>@BindObjectId</code> annotation suffice to set up a new request handler.</p>
+<p>The sections below describe how the server uses these interfaces to offer the common features. Please see the actual source code for details.</p>
+<h1>Browsing content</h1>
+<p>As you browse the sample service, the Sonos app displays content for albums, artists, or tracks. Each time you select an item, the Sonos app sends a <code><a href="https://developer.sonos.com/reference/sonos-music-api/getmetadata/">getMetadata</a></code> request for the item&#8217;s ID. The server responds with the metadata the item represents. The returned metadata is either a container of other items, like a list of albums, or an individual item such as a track.</p>
+<p>The starting ID for any audio service&#8217;s hierarchy must be <code>root</code>. Therefore, every service must respond to the <code><a href="https://developer.sonos.com/reference/sonos-music-api/getmetadata/">getMetadata</a></code> request for the <code>root</code> <code>id</code>. The contents of this response determines what other IDs are available to browse. The names of all other IDs for your service are up to you. For example, the sample server implements the IDs <code>browse:albums</code>, <code>browse:artists</code>, and <code>browse:tracks</code>. But your service can use anything you want, even <code>foo</code>, <code>bar</code>, and <code>baz</code>, for example. You determine what containers can be browsed and what is in those containers. Ideally, the container hierarchy should match what you already provide listeners when they browse your own application.</p>
+<p>The sample server uses the <code>MusicServiceGetMetadataEndpoint</code> to respond to requests. For example, here&#8217;s how it generates a response for the artists container:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5e514b61470f2005850996" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" touchscreen minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings="" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick"  style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+@PayloadRoot(namespace = MusicServiceConfig.SONOS_SOAP_NAMESPACE, localPart = "getMetadata")
+    @BindObjectId(BROWSE_ARTISTS)
+    @ResponsePayload
+    public GetMetadataResponse getMetadataBrowseArtists(@RequestPayload GetMetadata request) {
+        logger.info("GetMetadataBrowseArtists");
+
+        _verifyObjectId(BROWSE_ARTISTS, request);
+
+        MediaList responseList = new MediaList();
+        List&lt;AbstractMedia&gt; mediaCollection = responseList.getMediaCollectionOrMediaMetadata();
+
+        ContentApiDaoInterface dataSource = new ContentApiDao();
+        List&lt;Artist&gt; artists = dataSource.getArtists(request.getIndex(), request.getCount());
+        String baseRequestUrl = getBaseRequestUrl();
+        mediaCollection.addAll(artists.stream()
+                .map(artist -&gt; buildArtistMediaCollection(artist, source, getBaseRequestUrl()))
+                .collect(Collectors.toList()));
+
+        responseList.setIndex(request.getIndex());
+        responseList.setTotal(dataSource.getAllCount(Artist.class));
+        responseList.setCount(mediaCollection.size());
+
+        return new GetMetadataResponse() {{
+            setGetMetadataResult(responseList);
+        }};
+    }</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-2">2</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-4">4</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-6">6</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-8">8</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-10">10</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-12">12</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-14">14</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-16">16</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-18">18</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-20">20</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-22">22</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-24">24</div><div class="crayon-num" data-line="crayon-5e514b61470f2005850996-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470f2005850996-26">26</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5e514b61470f2005850996-1"><span class="crayon-sy">@</span><span class="crayon-e">PayloadRoot</span><span class="crayon-sy">(</span><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">MusicServiceConfig</span><span class="crayon-sy">.</span><span class="crayon-v">SONOS_SOAP_NAMESPACE</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">localPart</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"getMetadata"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">BindObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">BROWSE_ARTISTS</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">ResponsePayload</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-4"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">GetMetadataResponse </span><span class="crayon-e">getMetadataBrowseArtists</span><span class="crayon-sy">(</span><span class="crayon-sy">@</span><span class="crayon-e">RequestPayload </span><span class="crayon-e">GetMetadata </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">logger</span><span class="crayon-sy">.</span><span class="crayon-e">info</span><span class="crayon-sy">(</span><span class="crayon-s">"GetMetadataBrowseArtists"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-6">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470f2005850996-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">_verifyObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">BROWSE_ARTISTS</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-8">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470f2005850996-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">MediaList </span><span class="crayon-v">responseList</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">MediaList</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">List</span><span class="crayon-o">&lt;</span><span class="crayon-v">AbstractMedia</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">mediaCollection</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">getMediaCollectionOrMediaMetadata</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ContentApiDaoInterface </span><span class="crayon-v">dataSource</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">ContentApiDao</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">List</span><span class="crayon-o">&lt;</span><span class="crayon-v">Artist</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">artists</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getArtists</span><span class="crayon-sy">(</span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getIndex</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getCount</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">baseRequestUrl</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getBaseRequestUrl</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">mediaCollection</span><span class="crayon-sy">.</span><span class="crayon-e">addAll</span><span class="crayon-sy">(</span><span class="crayon-v">artists</span><span class="crayon-sy">.</span><span class="crayon-e">stream</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-v">artist</span><span class="crayon-h"> </span><span class="crayon-o">-&gt;</span><span class="crayon-h"> </span><span class="crayon-e">buildArtistMediaCollection</span><span class="crayon-sy">(</span><span class="crayon-v">artist</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">source</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">getBaseRequestUrl</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">collect</span><span class="crayon-sy">(</span><span class="crayon-v">Collectors</span><span class="crayon-sy">.</span><span class="crayon-e">toList</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-18">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470f2005850996-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setIndex</span><span class="crayon-sy">(</span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getIndex</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setTotal</span><span class="crayon-sy">(</span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getAllCount</span><span class="crayon-sy">(</span><span class="crayon-v">Artist</span><span class="crayon-sy">.</span><span class="crayon-t">class</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setCount</span><span class="crayon-sy">(</span><span class="crayon-v">mediaCollection</span><span class="crayon-sy">.</span><span class="crayon-e">size</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-22">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470f2005850996-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">GetMetadataResponse</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">setGetMetadataResult</span><span class="crayon-sy">(</span><span class="crayon-v">responseList</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470f2005850996-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470f2005850996-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0040 seconds] -->
+<p></p>
+<h1>Handling search requests</h1>
+<p>Users can search all music services for content. The sample server handles search requests in the <code>MusicServiceSearchEndpoint</code>. When your service provides search, it must respond to the <code><a href="https://developer.sonos.com/reference/sonos-music-api/getmetadata/">getMetadata</a></code> request for the <code>search</code> <code>id</code>. Your service&#8217;s response must be a collection of the available search category IDs. The Sonos app then uses these to form its search requests. For example, here&#8217;s how the sample server handles an album search:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5e514b61470fb560777638" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" touchscreen minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings="" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick"  style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+@PayloadRoot(namespace = MusicServiceConfig.SONOS_SOAP_NAMESPACE, localPart = "search")
+    @BindObjectId(ALBUMS)
+    @ResponsePayload
+    public SearchResponse searchAlbums(@RequestPayload Search request) {
+        _verifyObjectId(ALBUMS, request);
+        SearchResponse response = new SearchResponse();
+        MediaList responseList = new MediaList();
+
+        ContentApiDaoInterface dataSource = new ContentApiDao();
+        List&lt;AbstractMedia&gt; mediaCollection = responseList.getMediaCollectionOrMediaMetadata();
+        mediaCollection.addAll(dataSource.getSearchAlbums(ALBUMS, request.getTerm(), request.getIndex(), request.getCount()).stream()
+                .map(album -&gt; buildAlbumMediaCollection(album, source, getBaseRequestUrl()))
+                .collect(Collectors.toList()));
+
+        responseList.setIndex(request.getIndex());
+        responseList.setCount(mediaCollection.size());
+        responseList.setTotal(mediaCollection.size());
+
+        response.setSearchResult(responseList);
+        return response;
+    }</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-2">2</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-4">4</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-6">6</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-8">8</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-10">10</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-12">12</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-14">14</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-16">16</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-18">18</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b61470fb560777638-20">20</div><div class="crayon-num" data-line="crayon-5e514b61470fb560777638-21">21</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5e514b61470fb560777638-1"><span class="crayon-sy">@</span><span class="crayon-e">PayloadRoot</span><span class="crayon-sy">(</span><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">MusicServiceConfig</span><span class="crayon-sy">.</span><span class="crayon-v">SONOS_SOAP_NAMESPACE</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">localPart</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"search"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">BindObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUMS</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">ResponsePayload</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-4"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">SearchResponse </span><span class="crayon-e">searchAlbums</span><span class="crayon-sy">(</span><span class="crayon-sy">@</span><span class="crayon-e">RequestPayload </span><span class="crayon-e">Search </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">_verifyObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUMS</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">SearchResponse </span><span class="crayon-v">response</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">SearchResponse</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">MediaList </span><span class="crayon-v">responseList</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">MediaList</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-8">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470fb560777638-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ContentApiDaoInterface </span><span class="crayon-v">dataSource</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">ContentApiDao</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">List</span><span class="crayon-o">&lt;</span><span class="crayon-v">AbstractMedia</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">mediaCollection</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">getMediaCollectionOrMediaMetadata</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">mediaCollection</span><span class="crayon-sy">.</span><span class="crayon-e">addAll</span><span class="crayon-sy">(</span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getSearchAlbums</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUMS</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getTerm</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getIndex</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getCount</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">stream</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-v">album</span><span class="crayon-h"> </span><span class="crayon-o">-&gt;</span><span class="crayon-h"> </span><span class="crayon-e">buildAlbumMediaCollection</span><span class="crayon-sy">(</span><span class="crayon-v">album</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">source</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">getBaseRequestUrl</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">collect</span><span class="crayon-sy">(</span><span class="crayon-v">Collectors</span><span class="crayon-sy">.</span><span class="crayon-e">toList</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-14">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470fb560777638-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setIndex</span><span class="crayon-sy">(</span><span class="crayon-v">request</span><span class="crayon-sy">.</span><span class="crayon-e">getIndex</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setCount</span><span class="crayon-sy">(</span><span class="crayon-v">mediaCollection</span><span class="crayon-sy">.</span><span class="crayon-e">size</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">responseList</span><span class="crayon-sy">.</span><span class="crayon-e">setTotal</span><span class="crayon-sy">(</span><span class="crayon-v">mediaCollection</span><span class="crayon-sy">.</span><span class="crayon-e">size</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-18">&nbsp;</div><div class="crayon-line" id="crayon-5e514b61470fb560777638-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">response</span><span class="crayon-sy">.</span><span class="crayon-e">setSearchResult</span><span class="crayon-sy">(</span><span class="crayon-v">responseList</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b61470fb560777638-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">response</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b61470fb560777638-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0031 seconds] -->
+<p>See <code><a href="https://developer.sonos.com/reference/sonos-music-api/search/">search</a></code> and <a href="https://developer.sonos.com/build/content-service-add-features/add-search/">Add search</a> for details.</p>
+<h1>Playing music</h1>
+<p>Sonos players get the URIs for your specific content using <code><a href="https://developer.sonos.com/reference/sonos-music-api/getMediaUri/">getMediaUri</a></code> requests. The sample server handles these requests in the <code>MusicServiceEndpoint</code>:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5e514b6147100086502059" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" touchscreen minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings="" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick"  style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+@PayloadRoot(namespace = MusicServiceConfig.SONOS_SOAP_NAMESPACE, localPart = "getMediaURI")
+    @BindObjectId(prefix = TRACK)
+    @ResponsePayload
+    public GetMediaURIResponse getMediaUriTrack(@RequestPayload GetMediaURI request) {
+        logger.info("GetMediaURI");
+
+        _verifyObjectIdPrefix(TRACK, request);
+        int trackId = parseIdFromRequest(TRACK, request);
+
+        GetMediaURIResponse response = new GetMediaURIResponse();
+        ContentApiDaoInterface dataSource = new ContentApiDao();
+        TrackInfo trackInfo = dataSource.getTrackInfo(trackId);
+        response.setGetMediaURIResult(ContentApiDefaultEndpoint.getBaseRequestUrl() + trackInfo.getTrackUri());
+        return response;
+    }</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5e514b6147100086502059-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-2">2</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-4">4</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-6">6</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-8">8</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-10">10</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-12">12</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147100086502059-14">14</div><div class="crayon-num" data-line="crayon-5e514b6147100086502059-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5e514b6147100086502059-1"><span class="crayon-sy">@</span><span class="crayon-e">PayloadRoot</span><span class="crayon-sy">(</span><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">MusicServiceConfig</span><span class="crayon-sy">.</span><span class="crayon-v">SONOS_SOAP_NAMESPACE</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">localPart</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"getMediaURI"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">BindObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">prefix</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">TRACK</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">ResponsePayload</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-4"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">GetMediaURIResponse </span><span class="crayon-e">getMediaUriTrack</span><span class="crayon-sy">(</span><span class="crayon-sy">@</span><span class="crayon-e">RequestPayload </span><span class="crayon-e">GetMediaURI </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">logger</span><span class="crayon-sy">.</span><span class="crayon-e">info</span><span class="crayon-sy">(</span><span class="crayon-s">"GetMediaURI"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-6">&nbsp;</div><div class="crayon-line" id="crayon-5e514b6147100086502059-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">_verifyObjectIdPrefix</span><span class="crayon-sy">(</span><span class="crayon-v">TRACK</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">trackId</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">parseIdFromRequest</span><span class="crayon-sy">(</span><span class="crayon-v">TRACK</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">GetMediaURIResponse </span><span class="crayon-v">response</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">GetMediaURIResponse</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ContentApiDaoInterface </span><span class="crayon-v">dataSource</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">ContentApiDao</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">TrackInfo </span><span class="crayon-v">trackInfo</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getTrackInfo</span><span class="crayon-sy">(</span><span class="crayon-v">trackId</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">response</span><span class="crayon-sy">.</span><span class="crayon-e">setGetMediaURIResult</span><span class="crayon-sy">(</span><span class="crayon-v">ContentApiDefaultEndpoint</span><span class="crayon-sy">.</span><span class="crayon-e">getBaseRequestUrl</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">trackInfo</span><span class="crayon-sy">.</span><span class="crayon-e">getTrackUri</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147100086502059-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">response</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147100086502059-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0022 seconds] -->
+<p>Since the sample server only serves static files, we&#8217;ve implemented a simple <code>StaticContent</code> class. When you develop your implementation, you should be able to update from serving static files to Sonos to serving content from your content delivery network.</p>
+<h1>Implementing info view</h1>
+<p>Listeners can view more information about content by doing the following:</p>
+<ul>
+<li>On the Sonos app for Mac or PC: select a track and choose <strong>Info &amp; Options</strong>.</li>
+<li>On the Sonos app for mobile devices, click the three dots next to the track and tap <strong>More</strong>.</li>
+</ul>
+<p>SMAPI supports this view with the <code><a href="https://developer.sonos.com/reference/sonos-music-api/getextendedmetadata/">getExtendedMetadata</a></code> and <code><a href="https://developer.sonos.com/reference/sonos-music-api/getextendedmetadatatext/">getExtendedMetadataText</a></code> requests. The sample server generates responses to these requests in the <code>MusicServiceGetExtendedMetadataEndpoint</code> and the <code>MusicServiceGetExtendedMetadataTextEndpoint</code>. For example, here&#8217;s how it generates a <code><a href="https://developer.sonos.com/reference/sonos-music-api/getextendedmetadata/">getExtendedMetadata</a></code> response for an album:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5e514b6147105847154677" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" touchscreen minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings="" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick"  style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+@PayloadRoot(namespace = MusicServiceConfig.SONOS_SOAP_NAMESPACE, localPart = "getExtendedMetadata")
+    @BindObjectId(prefix = ALBUM)
+    @ResponsePayload
+    public GetExtendedMetadataResponse getExtendedMetadataAlbum(@RequestPayload GetExtendedMetadata request) {
+        logger.info("GetExtendedMetadataAlbum");
+        _verifyObjectIdPrefix(ALBUM, request);
+        int albumId = parseIdFromRequest(ALBUM, request);
+
+        GetExtendedMetadataResponse response = new GetExtendedMetadataResponse();
+        ContentApiDaoInterface dataSource = new ContentApiDao();
+        Album album = dataSource.getAlbum(albumId);
+
+        ExtendedMetadata extendedMetadata = new ExtendedMetadata();
+        extendedMetadata.setMediaCollection(MusicLibraryDataUtil.buildAlbumMediaCollection(album, source, getBaseRequestUrl()));
+
+        List&lt;RelatedText&gt; relatedTexts = extendedMetadata.getRelatedText();
+        dataSource.getAlbumInfo(albumId).stream().forEach(ai -&gt; relatedTexts.add(buildRelatedText(source)
+                .id(ALBUM + albumId)
+                .type(ai.getType())
+                .build()));
+
+        response.setGetExtendedMetadataResult(extendedMetadata);
+        return response;
+    }</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5e514b6147105847154677-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-2">2</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-4">4</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-6">6</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-8">8</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-10">10</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-12">12</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-14">14</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-16">16</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-18">18</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-20">20</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-22">22</div><div class="crayon-num" data-line="crayon-5e514b6147105847154677-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5e514b6147105847154677-24">24</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5e514b6147105847154677-1"><span class="crayon-sy">@</span><span class="crayon-e">PayloadRoot</span><span class="crayon-sy">(</span><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">MusicServiceConfig</span><span class="crayon-sy">.</span><span class="crayon-v">SONOS_SOAP_NAMESPACE</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">localPart</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"getExtendedMetadata"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">BindObjectId</span><span class="crayon-sy">(</span><span class="crayon-v">prefix</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">ALBUM</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-e">ResponsePayload</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-4"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">GetExtendedMetadataResponse </span><span class="crayon-e">getExtendedMetadataAlbum</span><span class="crayon-sy">(</span><span class="crayon-sy">@</span><span class="crayon-e">RequestPayload </span><span class="crayon-e">GetExtendedMetadata </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">logger</span><span class="crayon-sy">.</span><span class="crayon-e">info</span><span class="crayon-sy">(</span><span class="crayon-s">"GetExtendedMetadataAlbum"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">_verifyObjectIdPrefix</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUM</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">albumId</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">parseIdFromRequest</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUM</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">request</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-8">&nbsp;</div><div class="crayon-line" id="crayon-5e514b6147105847154677-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">GetExtendedMetadataResponse </span><span class="crayon-v">response</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">GetExtendedMetadataResponse</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ContentApiDaoInterface </span><span class="crayon-v">dataSource</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">ContentApiDao</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Album </span><span class="crayon-v">album</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getAlbum</span><span class="crayon-sy">(</span><span class="crayon-v">albumId</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-12">&nbsp;</div><div class="crayon-line" id="crayon-5e514b6147105847154677-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">ExtendedMetadata </span><span class="crayon-v">extendedMetadata</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">ExtendedMetadata</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">extendedMetadata</span><span class="crayon-sy">.</span><span class="crayon-e">setMediaCollection</span><span class="crayon-sy">(</span><span class="crayon-v">MusicLibraryDataUtil</span><span class="crayon-sy">.</span><span class="crayon-e">buildAlbumMediaCollection</span><span class="crayon-sy">(</span><span class="crayon-v">album</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">source</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">getBaseRequestUrl</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">List</span><span class="crayon-o">&lt;</span><span class="crayon-v">RelatedText</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">relatedTexts</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">extendedMetadata</span><span class="crayon-sy">.</span><span class="crayon-e">getRelatedText</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">dataSource</span><span class="crayon-sy">.</span><span class="crayon-e">getAlbumInfo</span><span class="crayon-sy">(</span><span class="crayon-v">albumId</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">stream</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-st">forEach</span><span class="crayon-sy">(</span><span class="crayon-v">ai</span><span class="crayon-h"> </span><span class="crayon-o">-&gt;</span><span class="crayon-h"> </span><span class="crayon-v">relatedTexts</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-e">buildRelatedText</span><span class="crayon-sy">(</span><span class="crayon-v">source</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">id</span><span class="crayon-sy">(</span><span class="crayon-v">ALBUM</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">albumId</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">type</span><span class="crayon-sy">(</span><span class="crayon-v">ai</span><span class="crayon-sy">.</span><span class="crayon-e">getType</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">build</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">response</span><span class="crayon-sy">.</span><span class="crayon-e">setGetExtendedMetadataResult</span><span class="crayon-sy">(</span><span class="crayon-v">extendedMetadata</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5e514b6147105847154677-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">response</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5e514b6147105847154677-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0032 seconds] -->
+<p></p>
+<div class="panel two-tone dark">
+<p><strong>Note:</strong> We updated the info view features after we created this sample. To find out more, see <a href="https://developer.sonos.com/build/content-service-add-features/add-actions/">Add actions</a>.</p>
+</div>
+<h1>Implementing authentication</h1>
+<p>Sonos apps use OAuth 2.0 for browser-based authentication of your service. See <a href="https://developer.sonos.com/build/content-service-add-features/add-authentication/">Add authentication</a> for details.</p>
+<p>The sample server demonstrates this by implementing an older version of authentication using <code><a href="https://developer.sonos.com/reference/sonos-music-api/getdevicelinkcode/">getDeviceLinkCode</a></code> and <code><a href="https://developer.sonos.com/reference/sonos-music-api/getdeviceauthtoken/">getDeviceAuthToken</a></code> in the <code>DeviceLinkAuthenticationModeEndpoint</code>. This code is still useful to understand the basic concept, but we recommend that you use the new APIs described in the link above.</p>
+<h1>Add reporting</h1>
+<p>We haven&#8217;t implemented status reporting in the sample server. See <a href="https://developer.sonos.com/build/content-service-add-features/add-reporting/">Add reporting</a> for details.</p>
+<p>The <code>StatusReportingEndpoint</code> is a placeholder. But note that we created this before we released the new APIs described above, so it may no longer be useful.</p>
+					</div>
+					<footer>
+												<p></p>
+					</footer>
+
+				</article>
+			
+			
+		</div>
+		<aside id="sidebar" class="small-12 large-3 columns large-pull-9">
+			<article id="nextendaccordionmenuwidget-5" class="row widget NextendAccordionMenuWidget"><div class="small-12 columns"><h6>Tools</h6><div id="nextend-accordion-menu-nextendaccordionmenuwidget-5" class="">
+  <div class="nextend-accordion-menu-inner ">
+        <div class="nextend-accordion-menu-inner-container">
+    <dl class="level1 ">
+  <dt class="level1 nextend-nav- notparent   first" data-menuid="">
+    <span class="outer">
+      <span class="inner">
+        <a  href=""><span></span></a>      </span>
+    </span>
+  </dt>
+  <dd class="level1 nextend-nav- notparent   first">
+  </dd>  <dt class="level1 nextend-nav-5390 parent opened  last" data-menuid="5390">
+    <span class="outer">
+      <span class="inner">
+        <a  href="https://developer.sonos.com/tools/sample-servers/"><span>Sample servers</span></a>      </span>
+    </span>
+  </dt>
+  <dd class="level1 nextend-nav-5390 parent opened  last">
+  <dl class="level2 ">
+  <dt class="level2 nextend-nav-11152 notparent opened active first last" data-menuid="11152">
+    <span class="outer">
+      <span class="inner">
+        <a  href="https://developer.sonos.com/tools/sample-servers/smapi-sample-server/"><span>SMAPI sample server</span></a>      </span>
+    </span>
+  </dt>
+  <dd class="level2 nextend-nav-11152 notparent opened active first last">
+  </dd></dl></dd>    </dl>
+    </div>
+  </div>
+</div></div></article>		</aside>
+	</div>
+</div>
+		</section>
+		<a class="exit-off-canvas"></a>
+		<div class="section condensed footer">
+						<div class="row">
+				<div class="columns small-12 medium-12">
+					<ul class="inline-list light sonos-links">
+                        <li><a href="/build">Plan & Build</a></li>
+                        <li><a href="/reference">Reference</a></li>
+                        <li><a href="/tools">Tools</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/support">Support</a></li>
+                                                    						                                                    <li><a href="/legal/terms-of-service">Terms of Service</a></li>
+                        <li><a href="https://www.sonos.com/en-us/legal/privacy">Privacy Policy</a></li>
+                        					</ul>
+				</div>
+				<div class="columns small-12">
+					<p class="copyright small-text-center large-text-right">© 2004-2020 SONOS, INC</p>
+				</div>
+			</div>
+					</div>
+
+				<script type='text/javascript' src='https://developer.sonos.com/wp-content/plugins/table-of-contents-plus/front.min.js'></script>
+<script type='text/javascript' src='https://developer.sonos.com/wp-content/themes/suit/js/common.js'></script>
+<script type='text/javascript' src='https://developer.sonos.com/wp-includes/js/wp-embed.min.js'></script>
+		
+	<script type="text/javascript" src="https://developer.sonos.com/wp-content/cache/js/static/80f3ea2b53ba7f0559c74194d32f3dae.js"></script></body>
+</html>

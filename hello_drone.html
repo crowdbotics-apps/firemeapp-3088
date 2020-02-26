@@ -1,0 +1,1144 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78629613-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-78629613-2');
+    </script>
+    <!-- Analytics END -->
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GroundSdk Hello Drone Tutorial &mdash; GroundSdk iOS Samples 1.1.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GroundSdk iOS Samples
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GroundSdk Hello Drone Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-project">Setup project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cocoapods-install">Cocoapods install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-groundsdk-pods">Adding GroundSdk Pods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#groundsdk-instance">GroundSdk instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drone-connection">Drone connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drone-monitoring">Drone monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#drone-user-interface">Drone user interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drone-state-monitoring">Drone state monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drone-battery-monitoring">Drone battery monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reset-drone-user-interface">Reset drone user interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#take-off-land-button">Take off / land button</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#button-layout">Button layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-piloting-monitor">Manual piloting monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#take-off-landing-requests">Take off / landing requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#video-stream">Video stream</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#video-layout">Video layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-display">Video display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#remote-control">Remote control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Setup project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-control-connection">Remote control connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-control-user-interface">Remote control user interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-control-state-and-battery">Remote control state and battery</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#full-project-sources">Full project sources</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GroundSdk iOS Samples</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>GroundSdk Hello Drone Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="groundsdk-hello-drone-tutorial">
+<h1>GroundSdk Hello Drone Tutorial<a class="headerlink" href="#groundsdk-hello-drone-tutorial" title="Permalink to this headline">¶</a></h1>
+<p><em>GroundSdk Hello Drone Tutorial</em> is a step-by-step guide that helps you
+develop an iOS application using GroundSdk iOS 1.1.2.
+This application is able to connect to an Anafi drone and a Skycontroller 3
+remote control, display the battery level and video stream, and take off or
+land the drone.</p>
+<p>At the end of this tutorial, you will be able to:</p>
+<ul class="simple">
+<li><p>Setup your developement environment</p></li>
+<li><p>Setup your project to use GroundSdk iOS 1.1.2</p></li>
+<li><p>Connect to a drone</p></li>
+<li><p>Display drone connection state</p></li>
+<li><p>Display drone battery level</p></li>
+<li><p>Make take off and land the drone</p></li>
+<li><p>Display the video live stream</p></li>
+<li><p>Connect to a remote control</p></li>
+<li><p>Display remote control connection state</p></li>
+<li><p>Display remote control battery level</p></li>
+</ul>
+<p>The full project is available <a class="reference external" href="https://github.com/Parrot-Developers/groundsdk-ios-samples/tree/master/HelloDrone">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial is based on GroundSdk iOS version 1.1.2.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Before starting this tutorial, you have to:</p>
+<blockquote>
+<div><ul>
+<li><p><a class="reference external" href="https://apps.apple.com/fr/app/xcode/id497799835?mt=12">Install xcode</a></p></li>
+<li><p><a class="reference external" href="https://help.apple.com/xcode/mac/current/#/dev07db0e578">Create a new project</a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Choose <cite>Simple View App</cite> as application template</p></li>
+<li><p>Choose <cite>Storyboard</cite> as <cite>User Interface</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="setup-project">
+<h2>Setup project<a class="headerlink" href="#setup-project" title="Permalink to this headline">¶</a></h2>
+<p>First you need to configure your project to use GroundSdk iOS Pods.</p>
+<div class="section" id="cocoapods-install">
+<h3>Cocoapods install<a class="headerlink" href="#cocoapods-install" title="Permalink to this headline">¶</a></h3>
+<p>To install Cocoapods, open a Terminal and execute the folowing command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo gem install cocoapods
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-groundsdk-pods">
+<h3>Adding GroundSdk Pods<a class="headerlink" href="#adding-groundsdk-pods" title="Permalink to this headline">¶</a></h3>
+<p>Open <cite>Terminal</cite> and navigate to the directory that contains
+your <cite>HelloDrone</cite> by using the <cite>cd</cite> command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~/Path/To/Folder/Containing/HelloDrone
+</pre></div>
+</div>
+<p>Next, enter the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pod init
+</pre></div>
+</div>
+<p>This creates
+a <a class="reference external" href="https://guides.cocoapods.org/using/the-podfile.html">Podfile</a> for
+your project.</p>
+<p>Open the Podfile using Xcode for
+editing:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> open -a Xcode Podfile
+</pre></div>
+</div>
+<p>Replace all content with:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">&#39;10.0&#39;</span>
+
+<span class="n">target</span> <span class="s1">&#39;HelloDrone&#39;</span> <span class="k">do</span>
+    <span class="n">use_frameworks!</span>
+    <span class="n">pod</span> <span class="s1">&#39;GroundSdk&#39;</span><span class="p">,</span> <span class="s1">&#39;1.1.2&#39;</span>
+    <span class="n">pod</span> <span class="s1">&#39;ArsdkEngine&#39;</span><span class="p">,</span> <span class="s1">&#39;1.1.2&#39;</span>
+    <span class="n">pod</span> <span class="s1">&#39;SdkCore&#39;</span><span class="p">,</span> <span class="s1">&#39;1.1.2&#39;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Save and close the Podfile.</p>
+<p>You now need to tell CocoaPods to install the dependencies for your
+project. Enter the following command in <cite>Terminal</cite>, after ensuring you are
+still in the directory containing the <cite>HelloDrone</cite> project and Podfile:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pod install
+</pre></div>
+</div>
+<p><strong>Open the project folder using Finder, and open the new
+`HelloDrone.xcworkspace` file created by CocoaPods.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case your deployment target is <cite>iOS 13</cite>, you also need to do the following:</p>
+<ul>
+<li><p>Remove <cite>SceneDelegate.swift</cite> file source.</p></li>
+<li><p>In Info.plist file, remove the entry <cite>Application Scene Manifest</cite></p></li>
+<li><p>In <cite>AppDelegate.swift</cite> file:</p>
+<blockquote>
+<div><ul>
+<li><p>Add <cite>var window: UIWindow?</cite> under the line <cite>class AppDelegate: UIResponder, UIApplicationDelegate {</cite></p></li>
+<li><p>Remove functions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -&gt; UISceneConfiguration</cite></p></li>
+<li><p><cite>func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set&lt;UISceneSession&gt;)</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<p>Your project setup is ready, let’s start coding!</p>
+</div>
+</div>
+<div class="section" id="groundsdk-instance">
+<h2>GroundSdk instance<a class="headerlink" href="#groundsdk-instance" title="Permalink to this headline">¶</a></h2>
+<p>In order to use GroundSdk in your application, you first have to create
+an keep a <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/GroundSdk.html">GroundSdk</a> instance. So open your ViewController file, and add:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">import</span> <span class="nc">UIKit</span>
+<span class="hll"><span class="c1">// import GroundSdk library.</span>
+</span><span class="hll"><span class="kd">import</span> <span class="nc">GroundSdk</span>
+</span>
+<span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
+
+<span class="hll">    <span class="c1">/// Ground SDk instance.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">let</span> <span class="nv">groundSdk</span> <span class="p">=</span> <span class="n">GroundSdk</span><span class="p">()</span>
+</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/GroundSdk.html">GroundSdk</a> instance keeps and manages all GroundSdk references.</p>
+</div>
+<div class="section" id="drone-connection">
+<h2>Drone connection<a class="headerlink" href="#drone-connection" title="Permalink to this headline">¶</a></h2>
+<p>To connect to a drone, you should use the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/AutoConnection.html">AutoConnection</a> facility.</p>
+<p>In <cite>viewDidLoad</cite>, <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/GroundSdk.html#/s:9GroundSdkAAC11getFacility_8observerAA3RefCy11ApiProtocolQzGx_yAHSgctAA0D9ClassDescRzlF">get the facility</a> and <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/AutoConnection.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSAutoConnection(im)start">start it</a>.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">/// Ground SDk instance.</span>
+    <span class="kd">private</span> <span class="kd">let</span> <span class="nv">groundSdk</span> <span class="p">=</span> <span class="n">GroundSdk</span><span class="p">()</span>
+<span class="hll">    <span class="c1">/// Reference to auto connection.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">autoConnectionRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">AutoConnection</span><span class="p">&gt;?</span>
+</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+<span class="hll">        <span class="c1">// Monitor the auto connection facility.</span>
+</span><span class="hll">        <span class="c1">// Keep the reference to be notified on update.</span>
+</span><span class="hll">        <span class="n">autoConnectionRef</span> <span class="p">=</span> <span class="n">groundSdk</span><span class="p">.</span><span class="n">getFacility</span><span class="p">(</span><span class="n">Facilities</span><span class="p">.</span><span class="n">autoConnection</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">autoConnection</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called when the auto connection facility is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">autoConnection</span> <span class="p">=</span> <span class="n">autoConnection</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Start auto connection.</span>
+</span><span class="hll">                <span class="k">if</span> <span class="p">(</span><span class="n">autoConnection</span><span class="p">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">AutoConnectionState</span><span class="p">.</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="n">autoConnection</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+</span><span class="hll">                <span class="p">}</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Auto connection will automatically select and connect the device.</p>
+<p>You need to monitor the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/AutoConnection.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSAutoConnection(py)drone">drone</a> change to stop using the old one and start
+using the new one.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="hll">    <span class="c1">// Drone:</span>
+</span><span class="hll">    <span class="c1">/// Current drone instance.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+        <span class="c1">// Monitor the auto connection facility.</span>
+        <span class="c1">// Keep the reference to be notified on update.</span>
+        <span class="n">autoConnectionRef</span> <span class="p">=</span> <span class="n">groundSdk</span><span class="p">.</span><span class="n">getFacility</span><span class="p">(</span><span class="n">Facilities</span><span class="p">.</span><span class="n">autoConnection</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">autoConnection</span> <span class="k">in</span>
+            <span class="c1">// Called when the auto connection facility is available and when it changes.</span>
+
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">autoConnection</span> <span class="p">=</span> <span class="n">autoConnection</span> <span class="p">{</span>
+                <span class="c1">// Start auto connection.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">autoConnection</span><span class="p">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">AutoConnectionState</span><span class="p">.</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">autoConnection</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="p">}</span>
+
+<span class="hll">                <span class="c1">// If the drone has changed.</span>
+</span><span class="hll">                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="c1">// Stop to monitor the old drone.</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">stopDroneMonitors</span><span class="p">()</span>
+</span><span class="hll">                    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">                    <span class="c1">// Monitor the new drone.</span>
+</span><span class="hll">                    <span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span>
+</span><span class="hll">                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">startDroneMonitors</span><span class="p">()</span>
+</span><span class="hll">                    <span class="p">}</span>
+</span><span class="hll">                <span class="p">}</span>
+</span>            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Starts drone monitors.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="hll">    <span class="c1">/// Stops drone monitors.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="drone-monitoring">
+<h2>Drone monitoring<a class="headerlink" href="#drone-monitoring" title="Permalink to this headline">¶</a></h2>
+<p>Now you will monitor and display the drone connection state and its battery
+state.</p>
+<div class="section" id="drone-user-interface">
+<h3>Drone user interface<a class="headerlink" href="#drone-user-interface" title="Permalink to this headline">¶</a></h3>
+<p>To display drone information, add two UILabels in your <a class="reference external" href="https://help.apple.com/xcode/mac/current/#/devf60c1c514">storyboard</a>.
+One for the Drone connection state, referencing to a <cite>droneStateTxt</cite> <cite>UILabel</cite> <cite>IBOutlet</cite> and
+one for the Drone battery level, referencing to a <cite>droneBatteryTxt</cite> <cite>UILabel</cite> IBOutlet`.</p>
+<p>Your <cite>storyboard</cite> should look like this:</p>
+<img alt="_images/drone_ui.png" src="_images/drone_ui.png" />
+<p>And your addings in your <cite>ViewController</cite> should be:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Drone:</span>
+    <span class="c1">/// Current drone instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+
+<span class="hll">    <span class="c1">// User Interface:</span>
+</span><span class="hll">    <span class="c1">/// Drone state text view.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+</span><span class="hll">    <span class="c1">/// Drone battery level text view.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="drone-state-monitoring">
+<h3>Drone state monitoring<a class="headerlink" href="#drone-state-monitoring" title="Permalink to this headline">¶</a></h3>
+<p>In order to display the drone connection state, set an observer on the
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/Drone.html#/s:9GroundSdk5DroneC8getState8observerAA3RefCyAA06DeviceE0CGyAISgc_tF">drone state</a>, and get its <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/DeviceState.html#/c:&#64;M&#64;GroundSdk&#64;objc(cs)GSDeviceState(py)connectionState">ConnectionState</a>.</p>
+<p>When you have finished with it and you want to stop monitoring it,
+set the drone state reference to <cite>nil</cite>.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Drone:</span>
+    <span class="c1">/// Current drone instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+<span class="hll">    <span class="c1">/// Reference to the current drone state.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneStateRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">DeviceState</span><span class="p">&gt;?</span>
+</span>
+    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// Monitor drone state.</span>
+</span><span class="hll">        <span class="n">monitorDroneState</span><span class="p">()</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Stops drone monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// Forget references linked to the current drone to stop their monitoring.</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">droneStateRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Monitor current drone state.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">monitorDroneState</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor current drone state.</span>
+</span><span class="hll">        <span class="n">droneStateRef</span> <span class="p">=</span> <span class="n">drone</span><span class="p">?.</span><span class="n">getState</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">state</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called at each drone state update.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">state</span> <span class="p">=</span> <span class="n">state</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Update drone state view.</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">.</span><span class="n">droneStateTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">state</span><span class="p">.</span><span class="n">connectionState</span><span class="p">.</span><span class="n">description</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="drone-battery-monitoring">
+<h3>Drone battery monitoring<a class="headerlink" href="#drone-battery-monitoring" title="Permalink to this headline">¶</a></h3>
+<p>In order to display the drone battery level, monitor the drone
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/BatteryInfo.html">battery info instrument</a>, using
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/Drone.html#/s:9GroundSdk5DroneC13getInstrument_8observerAA3RefCy11ApiProtocolQzGx_yAISgctAA0E9ClassDescRzlF">getInstrument</a>,
+then get its <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/BatteryInfo.html#/s:9GroundSdk11BatteryInfoP12batteryLevelSivp">batteryLevel</a>.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Drone:</span>
+    <span class="c1">/// Current drone instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+    <span class="c1">/// Reference to the current drone state.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneStateRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">DeviceState</span><span class="p">&gt;?</span>
+<span class="hll">    <span class="c1">/// Reference to the current drone battery info instrument.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneBatteryInfoRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">BatteryInfo</span><span class="p">&gt;?</span>
+</span>
+    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Monitor drone state.</span>
+        <span class="n">monitorDroneState</span><span class="p">()</span>
+
+<span class="hll">        <span class="c1">// Monitor drone battery level.</span>
+</span><span class="hll">        <span class="n">monitorDroneBatteryLevel</span><span class="p">()</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Stops drone monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Forget references linked to the current drone to stop their monitoring.</span>
+
+        <span class="n">droneStateRef</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="hll">        <span class="n">droneBatteryInfoRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Monitors current drone battery level.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">monitorDroneBatteryLevel</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor the battery info instrument.</span>
+</span><span class="hll">        <span class="n">droneBatteryInfoRef</span> <span class="p">=</span> <span class="n">drone</span><span class="p">?.</span><span class="n">getInstrument</span><span class="p">(</span><span class="n">Instruments</span><span class="p">.</span><span class="n">batteryInfo</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">batteryInfo</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called when the battery info instrument is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">batteryInfo</span> <span class="p">=</span> <span class="n">batteryInfo</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Update drone battery level view.</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">.</span><span class="n">droneBatteryTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;</span><span class="si">\(</span><span class="n">batteryInfo</span><span class="p">.</span><span class="n">batteryLevel</span><span class="si">)</span><span class="s">%&quot;</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="reset-drone-user-interface">
+<h3>Reset drone user interface<a class="headerlink" href="#reset-drone-user-interface" title="Permalink to this headline">¶</a></h3>
+<p>When view did load and when you stop monitoring a drone,
+you have to reset the drone user interface to prevent garbage display.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+<span class="hll">        <span class="c1">// Reset user interface</span>
+</span><span class="hll">        <span class="n">resetDroneUi</span><span class="p">()</span>
+</span>
+        <span class="c1">// Monitor the auto connection facility.</span>
+        <span class="c1">// Keep the reference to be notified on update.</span>
+        <span class="n">autoConnectionRef</span> <span class="p">=</span> <span class="n">groundSdk</span><span class="p">.</span><span class="n">getFacility</span><span class="p">(</span><span class="n">Facilities</span><span class="p">.</span><span class="n">autoConnection</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">autoConnection</span> <span class="k">in</span>
+            <span class="c1">// Called when the auto connection facility is available and when it changes.</span>
+
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">autoConnection</span> <span class="p">=</span> <span class="n">autoConnection</span> <span class="p">{</span>
+                <span class="c1">// Start auto connection.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">autoConnection</span><span class="p">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">AutoConnectionState</span><span class="p">.</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">autoConnection</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="p">}</span>
+
+                <span class="c1">// If the drone has changed.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// Stop to monitor the old drone.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">stopDroneMonitors</span><span class="p">()</span>
+
+<span class="hll">                        <span class="c1">// Reset user interface drone part.</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">resetDroneUi</span><span class="p">()</span>
+</span>                    <span class="p">}</span>
+
+                    <span class="c1">// Monitor the new drone.</span>
+                    <span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">startDroneMonitors</span><span class="p">()</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Resets drone user interface part.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">resetDroneUi</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Reset drone user interface views.</span>
+</span><span class="hll">        <span class="n">droneStateTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">DeviceState</span><span class="p">.</span><span class="n">ConnectionState</span><span class="p">.</span><span class="n">disconnected</span><span class="p">.</span><span class="n">description</span>
+</span><span class="hll">        <span class="n">droneBatteryTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="take-off-land-button">
+<h2>Take off / land button<a class="headerlink" href="#take-off-land-button" title="Permalink to this headline">¶</a></h2>
+<p>Now you will add a button to enable take off and landing.</p>
+<div class="section" id="button-layout">
+<h3>Button layout<a class="headerlink" href="#button-layout" title="Permalink to this headline">¶</a></h3>
+<p>In your layout, add a button at the bottom of the screen.
+Make it referencing to a <cite>takeOffLandBt</cite> <cite>UIButton</cite> <cite>IBOutlet</cite>.
+Bind it <cite>Touch Up Inside</cite> with a <cite>takeOffLandBtAction</cite> function.</p>
+<p>Your <cite>storyboard</cite> should look like this:</p>
+<img alt="_images/bt_ui.png" src="_images/bt_ui.png" />
+<p>And in your <cite>ViewController</cite> you should have:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+<span class="hll">    <span class="c1">/// Takeoff / land button.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">takeOffLandBt</span><span class="p">:</span> <span class="bp">UIButton</span><span class="p">!</span>
+</span>
+<span class="hll">    <span class="c1">/// Called on takeOff/land button click.</span>
+</span><span class="hll">    <span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">takeOffLandBtAction</span><span class="p">(</span><span class="kc">_</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="manual-piloting-monitor">
+<h3>Manual piloting monitor<a class="headerlink" href="#manual-piloting-monitor" title="Permalink to this headline">¶</a></h3>
+<p>In order to pilot the drone, you have to use the
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/ManualCopterPilotingItf.html">Manual Copter Piloting Interface</a>.</p>
+<p>Monitor it using <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/Drone.html#/s:9GroundSdk5DroneC14getPilotingItf_8observerAA3RefCy11ApiProtocolQzGx_yAISgctAA0eF9ClassDescRzlF">getPilotingItf</a>,
+and update the button view according to the availability of these actions
+(<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/ManualCopterPilotingItf.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSManualCopterPilotingItf(py)canTakeOff">canTakeOff</a> / <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/ManualCopterPilotingItf.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSManualCopterPilotingItf(py)canLand">canLand</a>).</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Drone:</span>
+    <span class="c1">/// Current drone instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+    <span class="c1">/// Reference to the current drone state.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneStateRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">DeviceState</span><span class="p">&gt;?</span>
+    <span class="c1">/// Reference to the current drone battery info instrument.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneBatteryInfoRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">BatteryInfo</span><span class="p">&gt;?</span>
+<span class="hll">    <span class="c1">/// Reference to a current drone piloting interface.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">pilotingItfRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">ManualCopterPilotingItf</span><span class="p">&gt;?</span>
+</span>
+    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Takeoff / land button.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">takeOffLandBt</span><span class="p">:</span> <span class="bp">UIButton</span><span class="p">!</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Monitor drone state.</span>
+        <span class="n">monitorDroneState</span><span class="p">()</span>
+
+        <span class="c1">// Monitor drone battery level.</span>
+        <span class="n">monitorDroneBatteryLevel</span><span class="p">()</span>
+
+<span class="hll">        <span class="c1">// Monitor piloting interface.</span>
+</span><span class="hll">        <span class="n">monitorPilotingInterface</span><span class="p">()</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Stops drone monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Forget references linked to the current drone to stop their monitoring.</span>
+
+        <span class="n">droneStateRef</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="n">droneBatteryInfoRef</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="hll">        <span class="n">pilotingItfRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Monitors current drone piloting interface.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">monitorPilotingInterface</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor a piloting interface.</span>
+</span><span class="hll">        <span class="n">pilotingItfRef</span> <span class="p">=</span> <span class="n">drone</span><span class="p">?.</span><span class="n">getPilotingItf</span><span class="p">(</span><span class="n">PilotingItfs</span><span class="p">.</span><span class="n">manualCopter</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">itf</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called when the manual copter piloting Interface is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">itf</span> <span class="p">=</span> <span class="n">itf</span> <span class="p">{</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">?.</span><span class="n">managePilotingItfState</span><span class="p">(</span><span class="n">itf</span><span class="p">:</span> <span class="n">itf</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Disable the button if the piloting interface is not available.</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">?.</span><span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">false</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Manage piloting interface state</span>
+</span><span class="hll">    <span class="c1">///</span>
+</span><span class="hll">    <span class="c1">/// - Parameter itf: the piloting interface</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">managePilotingItfState</span><span class="p">(</span><span class="n">itf</span><span class="p">:</span> <span class="n">ManualCopterPilotingItf</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">switch</span> <span class="n">itf</span><span class="p">.</span><span class="n">state</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">case</span> <span class="n">ActivablePilotingItfState</span><span class="p">.</span><span class="n">unavailable</span><span class="p">:</span>
+</span><span class="hll">            <span class="c1">// Piloting interface is unavailable.</span>
+</span><span class="hll">            <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">false</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">case</span> <span class="n">ActivablePilotingItfState</span><span class="p">.</span><span class="n">idle</span><span class="p">:</span>
+</span><span class="hll">            <span class="c1">// Piloting interface is idle.</span>
+</span><span class="hll">            <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">false</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="c1">// Activate the interface.</span>
+</span><span class="hll">            <span class="kc">_</span> <span class="p">=</span> <span class="n">itf</span><span class="p">.</span><span class="n">activate</span><span class="p">()</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">case</span> <span class="n">ActivablePilotingItfState</span><span class="p">.</span><span class="n">active</span><span class="p">:</span>
+</span><span class="hll">            <span class="c1">// Piloting interface is active.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="n">itf</span><span class="p">.</span><span class="n">canTakeOff</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Drone can takeOff.</span>
+</span><span class="hll">                <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span><span class="hll">                <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s">&quot;TakeOff&quot;</span><span class="p">,</span> <span class="k">for</span><span class="p">:</span> <span class="p">.</span><span class="n">normal</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">itf</span><span class="p">.</span><span class="n">canLand</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Drone can land.</span>
+</span><span class="hll">                <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span><span class="hll">                <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s">&quot;Land&quot;</span><span class="p">,</span> <span class="k">for</span><span class="p">:</span> <span class="p">.</span><span class="n">normal</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Disable the button.</span>
+</span><span class="hll">                <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">false</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="take-off-landing-requests">
+<h3>Take off / landing requests<a class="headerlink" href="#take-off-landing-requests" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/ManualCopterPilotingItf.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSManualCopterPilotingItf(im)takeOff">take off</a> or <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/ManualCopterPilotingItf.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSManualCopterPilotingItf(im)land">land</a> the drone when the button is clicked,
+according to their availabilities.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">/// Called on takeOff/land button click.</span>
+    <span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">takeOffLandBtAction</span><span class="p">(</span><span class="kc">_</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// Get the piloting interface from its reference.</span>
+</span><span class="hll">        <span class="k">if</span> <span class="kd">let</span> <span class="nv">itf</span> <span class="p">=</span> <span class="n">pilotingItfRef</span><span class="p">?.</span><span class="n">value</span> <span class="p">{</span>
+</span><span class="hll">            <span class="c1">// Do the action according to the interface capabilities</span>
+</span><span class="hll">            <span class="k">if</span> <span class="n">itf</span><span class="p">.</span><span class="n">canTakeOff</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Takeoff</span>
+</span><span class="hll">                <span class="n">itf</span><span class="p">.</span><span class="n">takeOff</span><span class="p">()</span>
+</span><span class="hll">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">itf</span><span class="p">.</span><span class="n">canLand</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Land</span>
+</span><span class="hll">                <span class="n">itf</span><span class="p">.</span><span class="n">land</span><span class="p">()</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="video-stream">
+<h2>Video stream<a class="headerlink" href="#video-stream" title="Permalink to this headline">¶</a></h2>
+<p>The next step will allow you to add a live stream video view.</p>
+<div class="section" id="video-layout">
+<h3>Video layout<a class="headerlink" href="#video-layout" title="Permalink to this headline">¶</a></h3>
+<p>In your <cite>storyboard</cite>, add a <cite>GLKit View</cite> with <cite>GSStreamView</cite> as custom class. (<cite>GSStreamView</cite> is the <cite>Objective-C</cite> name of <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/StreamView.html">StreamView</a>)</p>
+<p>Make it referencing to a <cite>streamView</cite> <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/StreamView.html">StreamView</a> <cite>IBOutlet</cite>.</p>
+<p>Your <cite>storyboard</cite> should now look like this:</p>
+<img alt="_images/stream_ui.png" src="_images/stream_ui.png" />
+<p>And in your <cite>ViewController</cite> you should have:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// User Interface:</span>
+<span class="hll">    <span class="c1">/// Video stream view.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">streamView</span><span class="p">:</span> <span class="n">StreamView</span><span class="p">!</span>
+</span>    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Takeoff / land button.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">takeOffLandBt</span><span class="p">:</span> <span class="bp">UIButton</span><span class="p">!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="video-display">
+<h3>Video display<a class="headerlink" href="#video-display" title="Permalink to this headline">¶</a></h3>
+<p>In order to display the live video stream in the StreamView, you need to:</p>
+<ul class="simple">
+<li><p>Monitor the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/StreamServer.html">stream server peripheral</a></p></li>
+<li><p><a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/StreamServer.html#/s:9GroundSdk12StreamServerP4live8observerAA3RefCyAA10CameraLive_pGyAaH_pSgc_tF">Monitor its live stream</a></p></li>
+<li><p><a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/CameraLive.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSCameraLive(im)play">Start to play</a> the stream</p></li>
+<li><p><a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/StreamView.html#/c:&#64;M&#64;GroundSdk&#64;objc(cs)GSStreamView(im)setStreamWithStream:">Attach this stream to your StreamView</a></p></li>
+<li><p>Detach the stream from the StreamView when you want to stop rendering the
+stream</p></li>
+</ul>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Drone:</span>
+    <span class="c1">/// Current drone instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">drone</span><span class="p">:</span> <span class="n">Drone</span><span class="p">?</span>
+    <span class="c1">/// Reference to the current drone state.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneStateRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">DeviceState</span><span class="p">&gt;?</span>
+    <span class="c1">/// Reference to the current drone battery info instrument.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">droneBatteryInfoRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">BatteryInfo</span><span class="p">&gt;?</span>
+    <span class="c1">/// Reference to a current drone piloting interface.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">pilotingItfRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">ManualCopterPilotingItf</span><span class="p">&gt;?</span>
+<span class="hll">    <span class="c1">/// Reference to the current drone stream server Peripheral.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">streamServerRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">StreamServer</span><span class="p">&gt;?</span>
+</span><span class="hll">    <span class="c1">/// Reference to the current drone live stream.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">liveStreamRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">CameraLive</span><span class="p">&gt;?</span>
+</span>
+    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Video stream view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">streamView</span><span class="p">:</span> <span class="n">StreamView</span><span class="p">!</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Takeoff / land button.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">takeOffLandBt</span><span class="p">:</span> <span class="bp">UIButton</span><span class="p">!</span>
+
+    <span class="c1">/// Resets drone user interface part.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">resetDroneUi</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Reset drone user interface views.</span>
+        <span class="n">droneStateTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">DeviceState</span><span class="p">.</span><span class="n">ConnectionState</span><span class="p">.</span><span class="n">disconnected</span><span class="p">.</span><span class="n">description</span>
+        <span class="n">droneBatteryTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+        <span class="n">takeOffLandBt</span><span class="p">.</span><span class="n">isEnabled</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="hll">        <span class="c1">// Stop rendering the stream</span>
+</span><span class="hll">        <span class="n">streamView</span><span class="p">.</span><span class="n">setStream</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Starts drone monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Monitor drone state.</span>
+        <span class="n">monitorDroneState</span><span class="p">()</span>
+
+        <span class="c1">// Monitor drone battery level.</span>
+        <span class="n">monitorDroneBatteryLevel</span><span class="p">()</span>
+
+        <span class="c1">// Monitor piloting interface.</span>
+        <span class="n">monitorPilotingInterface</span><span class="p">()</span>
+
+<span class="hll">        <span class="c1">// Start video stream.</span>
+</span><span class="hll">        <span class="n">startVideoStream</span><span class="p">()</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Stops drone monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopDroneMonitors</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Forget references linked to the current drone to stop their monitoring.</span>
+
+        <span class="n">droneStateRef</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="n">droneBatteryInfoRef</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="n">pilotingItfRef</span> <span class="p">=</span> <span class="kc">nil</span>
+<span class="hll">        <span class="n">liveStreamRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span>        <span class="n">streamServerRef</span> <span class="p">=</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Starts the video stream.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startVideoStream</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor the stream server.</span>
+</span><span class="hll">        <span class="n">streamServerRef</span> <span class="p">=</span> <span class="n">drone</span><span class="p">?.</span><span class="n">getPeripheral</span><span class="p">(</span><span class="n">Peripherals</span><span class="p">.</span><span class="n">streamServer</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">streamServer</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called when the stream server is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">streamServer</span> <span class="p">=</span> <span class="n">streamServer</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Enable Streaming</span>
+</span><span class="hll">                <span class="n">streamServer</span><span class="p">.</span><span class="n">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">.</span><span class="n">liveStreamRef</span> <span class="p">=</span> <span class="n">streamServer</span><span class="p">.</span><span class="n">live</span> <span class="p">{</span> <span class="n">liveStream</span> <span class="k">in</span>
+</span><span class="hll">                    <span class="c1">// Called when the live stream is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">                    <span class="k">if</span> <span class="kd">let</span> <span class="nv">liveStream</span> <span class="p">=</span> <span class="n">liveStream</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="c1">// Set the live stream as the stream to be render by the stream view.</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">streamView</span><span class="p">.</span><span class="n">setStream</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">liveStream</span><span class="p">)</span>
+</span><span class="hll">                        <span class="c1">// Play the live stream.</span>
+</span><span class="hll">                        <span class="kc">_</span> <span class="p">=</span> <span class="n">liveStream</span><span class="p">.</span><span class="n">play</span><span class="p">()</span>
+</span><span class="hll">                    <span class="p">}</span>
+</span><span class="hll">                <span class="p">}</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="remote-control">
+<h2>Remote control<a class="headerlink" href="#remote-control" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will see how to connect to a remote control, display its
+connection state and battery level.</p>
+<div class="section" id="id1">
+<h3>Setup project<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>You need to setup your project to support remote controls.</p>
+<p>Add to your <cite>Info.plist</cite> file a new array with
+<cite>Supported external accessory protocols</cite> as key and add to it a string item
+with the value <cite>com.parrot.dronesdk</cite></p>
+<p>Your <cite>Info.plist</cite> file should now look like this:</p>
+<img alt="_images/remote_plist.png" src="_images/remote_plist.png" />
+</div>
+<div class="section" id="remote-control-connection">
+<h3>Remote control connection<a class="headerlink" href="#remote-control-connection" title="Permalink to this headline">¶</a></h3>
+<p>You can use the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/AutoConnection.html">auto connection facility</a> as with the drone, and get the
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/AutoConnection.html#/c:&#64;M&#64;GroundSdk&#64;objc(pl)GSAutoConnection(py)remoteControl">remote control</a> from it.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">/// Ground SDk instance.</span>
+    <span class="kd">private</span> <span class="kd">let</span> <span class="nv">groundSdk</span> <span class="p">=</span> <span class="n">GroundSdk</span><span class="p">()</span>
+    <span class="c1">/// Reference to auto connection.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">autoConnectionRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">AutoConnection</span><span class="p">&gt;?</span>
+
+<span class="hll">    <span class="c1">// Remote control:</span>
+</span><span class="hll">    <span class="c1">/// Current remote control instance.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">remote</span><span class="p">:</span> <span class="n">RemoteControl</span><span class="p">?</span>
+</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+        <span class="c1">// Reset user interface</span>
+        <span class="n">resetDroneUi</span><span class="p">()</span>
+
+        <span class="c1">// Monitor the auto connection facility.</span>
+        <span class="c1">// Keep the reference to be notified on update.</span>
+        <span class="n">autoConnectionRef</span> <span class="p">=</span> <span class="n">groundSdk</span><span class="p">.</span><span class="n">getFacility</span><span class="p">(</span><span class="n">Facilities</span><span class="p">.</span><span class="n">autoConnection</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">autoConnection</span> <span class="k">in</span>
+            <span class="c1">// Called when the auto connection facility is available and when it changes.</span>
+
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">autoConnection</span> <span class="p">=</span> <span class="n">autoConnection</span> <span class="p">{</span>
+                <span class="c1">// Start auto connection.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">autoConnection</span><span class="p">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">AutoConnectionState</span><span class="p">.</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">autoConnection</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="p">}</span>
+
+                <span class="c1">// If the drone has changed.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// Stop to monitor the old drone.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">stopDroneMonitors</span><span class="p">()</span>
+
+                        <span class="c1">// Reset user interface drone part.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">resetDroneUi</span><span class="p">()</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// Monitor the new drone.</span>
+                    <span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">startDroneMonitors</span><span class="p">()</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+<span class="hll">                <span class="c1">// If the remote control has changed.</span>
+</span><span class="hll">                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">remoteControl</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="c1">// Stop to monitor the old remote.</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">stopRemoteMonitors</span><span class="p">()</span>
+</span><span class="hll">                    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">                    <span class="c1">// Monitor the new remote.</span>
+</span><span class="hll">                    <span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">remoteControl</span>
+</span><span class="hll">                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">startRemoteMonitors</span><span class="p">()</span>
+</span><span class="hll">                    <span class="p">}</span>
+</span><span class="hll">                <span class="p">}</span>
+</span>            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Starts remote control monitors.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startRemoteMonitors</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="hll">    <span class="c1">/// Stops remote control monitors.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopRemoteMonitors</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="remote-control-user-interface">
+<h3>Remote control user interface<a class="headerlink" href="#remote-control-user-interface" title="Permalink to this headline">¶</a></h3>
+<p>To display remote control information, add UILabels in your <a class="reference external" href="https://help.apple.com/xcode/mac/current/#/devf60c1c514">storyboard</a>.
+One for the remote control connection state, referencing to a <cite>remoteStateTxt</cite> <cite>UILabel</cite> <cite>IBOutlet</cite> and
+one for the remote control battery level, referencing to a <cite>remoteBatteryTxt</cite> <cite>UILabel</cite> IBOutlet`.</p>
+<p>Your <cite>storyboard</cite> should look like this:</p>
+<img alt="_images/remote_ui.png" src="_images/remote_ui.png" />
+<p>And with the reset of the remote user interface,
+your <cite>ViewController</cite> you should have:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// User Interface:</span>
+    <span class="c1">/// Video stream view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">streamView</span><span class="p">:</span> <span class="n">StreamView</span><span class="p">!</span>
+    <span class="c1">/// Drone state text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+    <span class="c1">/// Drone battery level text view.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">droneBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+<span class="hll">    <span class="c1">/// Remote state level text view.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">remoteStateTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+</span><span class="hll">    <span class="c1">/// Remote battery level text view.</span>
+</span><span class="hll">    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">remoteBatteryTxt</span><span class="p">:</span> <span class="bp">UILabel</span><span class="p">!</span>
+</span>    <span class="c1">/// Takeoff / land button.</span>
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">takeOffLandBt</span><span class="p">:</span> <span class="bp">UIButton</span><span class="p">!</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+
+        <span class="c1">// Reset user interface</span>
+        <span class="n">resetDroneUi</span><span class="p">()</span>
+<span class="hll">        <span class="n">resetRemoteUi</span><span class="p">()</span>
+</span>
+        <span class="c1">// Monitor the auto connection facility.</span>
+        <span class="c1">// Keep the reference to be notified on update.</span>
+        <span class="n">autoConnectionRef</span> <span class="p">=</span> <span class="n">groundSdk</span><span class="p">.</span><span class="n">getFacility</span><span class="p">(</span><span class="n">Facilities</span><span class="p">.</span><span class="n">autoConnection</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">autoConnection</span> <span class="k">in</span>
+            <span class="c1">// Called when the auto connection facility is available and when it changes.</span>
+
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">autoConnection</span> <span class="p">=</span> <span class="n">autoConnection</span> <span class="p">{</span>
+                <span class="c1">// Start auto connection.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">autoConnection</span><span class="p">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">AutoConnectionState</span><span class="p">.</span><span class="n">started</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">autoConnection</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="p">}</span>
+
+                <span class="c1">// If the drone has changed.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// Stop to monitor the old drone.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">stopDroneMonitors</span><span class="p">()</span>
+
+                        <span class="c1">// Reset user interface drone part.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">resetDroneUi</span><span class="p">()</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// Monitor the new drone.</span>
+                    <span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">drone</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">drone</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">startDroneMonitors</span><span class="p">()</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="c1">// If the remote control has changed.</span>
+                <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span><span class="p">?.</span><span class="n">uid</span> <span class="o">!=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">remoteControl</span><span class="p">?.</span><span class="n">uid</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">                        <span class="c1">// Reset user interface Remote part.</span>
+</span><span class="hll">                        <span class="kc">self</span><span class="p">.</span><span class="n">resetRemoteUi</span><span class="p">()</span>
+</span>
+                        <span class="c1">// Stop to monitor the old remote.</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">stopRemoteMonitors</span><span class="p">()</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// Monitor the new remote.</span>
+                    <span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="p">=</span> <span class="n">autoConnection</span><span class="p">.</span><span class="n">remoteControl</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">remote</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="kc">self</span><span class="p">.</span><span class="n">startRemoteMonitors</span><span class="p">()</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Resets remote user interface part.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">resetRemoteUi</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Reset remote control user interface views.</span>
+</span><span class="hll">        <span class="n">remoteStateTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">DeviceState</span><span class="p">.</span><span class="n">ConnectionState</span><span class="p">.</span><span class="n">disconnected</span><span class="p">.</span><span class="n">description</span>
+</span><span class="hll">        <span class="n">remoteBatteryTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="remote-control-state-and-battery">
+<h3>Remote control state and battery<a class="headerlink" href="#remote-control-state-and-battery" title="Permalink to this headline">¶</a></h3>
+<p>As with the drone, set an observer on the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/RemoteControl.html#/s:9GroundSdk13RemoteControlC8getState8observerAA3RefCyAA06DeviceF0CGyAISgc_tF">remote control state</a> to display
+its <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/DeviceState.html#/s:9GroundSdk11DeviceStateC010ConnectionD0O">connectionState</a>.</p>
+<p>Then monitor the <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/BatteryInfo.html">battery info instrument</a>, using
+<a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Classes/RemoteControl.html#/s:9GroundSdk13RemoteControlC13getInstrument_8observerAA3RefCy11ApiProtocolQzGx_yAISgctAA0F9ClassDescRzlF">getInstrument</a>
+and display its <a class="reference external" href="https://developer.parrot.com/docs/refdoc-ios/Protocols/BatteryInfo.html#/s:9GroundSdk11BatteryInfoP12batteryLevelSivp">batteryLevel</a>.</p>
+<p>Finally, set to <cite>nil</cite> the remote control references to stop monitoring them.</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>    <span class="c1">// Remote control:</span>
+    <span class="c1">/// Current remote control instance.</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">remote</span><span class="p">:</span> <span class="n">RemoteControl</span><span class="p">?</span>
+<span class="hll">    <span class="c1">/// Reference to the current remote control state.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">remoteStateRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">DeviceState</span><span class="p">&gt;?</span>
+</span><span class="hll">    <span class="c1">/// Reference to the current remote control battery info instrument.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">remoteBatteryInfoRef</span><span class="p">:</span> <span class="n">Ref</span><span class="p">&lt;</span><span class="n">BatteryInfo</span><span class="p">&gt;?</span>
+</span>
+    <span class="c1">/// Starts remote control monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">startRemoteMonitors</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// Monitor remote state</span>
+</span><span class="hll">        <span class="n">monitorRemoteState</span><span class="p">()</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// Monitor remote battery level</span>
+</span><span class="hll">        <span class="n">monitorRemoteBatteryLevel</span><span class="p">()</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">/// Stops remote control monitors.</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">stopRemoteMonitors</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// Forget all references linked to the current remote to stop their monitoring.</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">remoteStateRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span><span class="hll">        <span class="n">remoteBatteryInfoRef</span> <span class="p">=</span> <span class="kc">nil</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// Monitor current remote control state.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">monitorRemoteState</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor current drone state.</span>
+</span><span class="hll">        <span class="n">remoteStateRef</span> <span class="p">=</span> <span class="n">remote</span><span class="p">?.</span><span class="n">getState</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">state</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called at each remote state update.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">state</span> <span class="p">=</span> <span class="n">state</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Update remote state view.</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">.</span><span class="n">remoteStateTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">state</span><span class="p">.</span><span class="n">connectionState</span><span class="p">.</span><span class="n">description</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Monitors current remote control battery level.</span>
+</span><span class="hll">    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">monitorRemoteBatteryLevel</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Monitor the battery info instrument.</span>
+</span><span class="hll">        <span class="n">remoteBatteryInfoRef</span> <span class="p">=</span> <span class="n">remote</span><span class="p">?.</span><span class="n">getInstrument</span><span class="p">(</span><span class="n">Instruments</span><span class="p">.</span><span class="n">batteryInfo</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="kr">weak</span> <span class="kc">self</span><span class="p">]</span> <span class="n">batteryInfo</span> <span class="k">in</span>
+</span><span class="hll">            <span class="c1">// Called when the battery info instrument is available and when it changes.</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="k">if</span> <span class="kd">let</span> <span class="nv">self</span> <span class="p">=</span> <span class="kc">self</span><span class="p">,</span> <span class="kd">let</span> <span class="nv">batteryInfo</span> <span class="p">=</span> <span class="n">batteryInfo</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// Update drone battery level view.</span>
+</span><span class="hll">                <span class="kc">self</span><span class="p">.</span><span class="n">remoteBatteryTxt</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;</span><span class="si">\(</span><span class="n">batteryInfo</span><span class="p">.</span><span class="n">batteryLevel</span><span class="si">)</span><span class="s">%&quot;</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="full-project-sources">
+<h2>Full project sources<a class="headerlink" href="#full-project-sources" title="Permalink to this headline">¶</a></h2>
+<p>Thank you for having followed this tutorial. Hoping it was helpful to you.</p>
+<p>You can find the full project on <a class="reference external" href="https://github.com/Parrot-Developers/groundsdk-ios-samples/tree/master/HelloDrone">github</a>.</p>
+<p>Please feel free to ask questions on the <a class="reference external" href="https://forum.developer.parrot.com/">Parrot forum for developers</a>.</p>
+<p>Wish you all the best with <a class="reference external" href="https://developer.parrot.com/">GroundSdk</a>!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Parrot
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

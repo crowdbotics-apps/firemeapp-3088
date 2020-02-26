@@ -1,0 +1,7 @@
+#!/bin/bash
+# Simple getopt replacement using bash script function: https://github.com/agriffis/pure-getopt/blob/master/getopt.bash
+
+top=${0%/*}
+. ${top}/getopt.bash
+
+getopt $*
